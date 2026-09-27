@@ -1,0 +1,22 @@
+{
+  "strength": 1.0,
+  "max_absolute_reduction": 0.05,
+  "max_relative_reduction": 0.15,
+  "minimum_prior_count": 20,
+  "stable_ratio_min": 0.8,
+  "stable_ratio_max": 1.25,
+  "stable_entity_deviation_max": 1.0,
+  "guard_entity_deviation": 3.0,
+  "guard_multivariate_rank": 0.98,
+  "guard_hourly_count": 10,
+  "frequent_temporal_discount": 0.20,
+  "familiar_amount_discount": 0.15,
+  "business_hours_discount": 0.10,
+  "expected_weekend_discount": 0.10,
+  "trusted_entity_discount": 0.10,
+  "product_amount_discount": 0.10,
+  "product_minimum_support": 1000,
+  "product_lower_quantile": 0.10,
+  "product_upper_quantile": 0.90,
+  "high_amount_rank": 0.90
+}

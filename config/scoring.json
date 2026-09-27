@@ -1,0 +1,14 @@
+{
+  "minimum_entity_history": 5,
+  "isolation_forest": {
+    "n_estimators": 128,
+    "max_samples": 1024,
+    "random_state": 42
+  },
+  "weights": {
+    "column": 0.25,
+    "multivariate": 0.25,
+    "entity": 0.25,
+    "temporal": 0.25
+  }
+}

@@ -1,0 +1,2775 @@
+{
+  "manifest": {
+    "started_utc": "2026-09-27T01:11:23.143129+00:00",
+    "protocol": {
+      "folds": 3,
+      "label_delay_days": [
+        0,
+        7
+      ],
+      "block_hours": [
+        6,
+        24
+      ],
+      "bootstrap_resamples": 1000,
+      "min_blocks": 8,
+      "review_rates": [
+        0.01,
+        0.05,
+        0.1
+      ],
+      "primary_review_rate": 0.05,
+      "seed": 42,
+      "hybrid_supervised_share": 0.5
+    },
+    "python": "3.14.6",
+    "sklearn": "1.9.1",
+    "scope": "Development only: previously inspected train/validation; final test excluded.",
+    "scoring": {
+      "minimum_entity_history": 5,
+      "isolation_forest": {
+        "n_estimators": 128,
+        "max_samples": 1024,
+        "random_state": 42
+      },
+      "weights": {
+        "column": 0.25,
+        "multivariate": 0.25,
+        "entity": 0.25,
+        "temporal": 0.25
+      }
+    },
+    "source_sha256": {
+      "scripts/temporal_validation.py": "a1bee6e46bb8fe4a18e658643ad138e669ac0c63690b3ec14b7ffd09463fc946",
+      "scripts/supervised_baseline.py": "59e4a59f40a7523de8eef201a525bdd4f9c90cf5192c092ae2fe46bca4aa7e33",
+      "src/fraud_case/anomaly.py": "1e7e6b23d0da51390aa56e610fd60bafa972323779b7ae78d35ef4e9d5869e1e",
+      "src/fraud_case/aggregation.py": "224730b1c8ebb42917dd1e53f33f1a786ea5841f07273779d3b7a021b166ef2a",
+      "src/fraud_case/evaluation.py": "0dd9deb8d682af3e2e7e470e3392f74f8a11f48f5392568818c3c0b5c5a143fb",
+      "config/scoring.json": "7839b02e85cb78471f804246aee5e24fa8080869f099e8e337125ded43d57be5"
+    },
+    "filtered_input_sha256": {
+      "features": "b2bf4ed837a0ff908d081d61a2a86140b0474db1c44c5efa2393ebca088ecdbb",
+      "transactions": "eaa50a8ada8b0d84d38549f5f6474edb7157969d904c6bb3cfe4c001f4d6337d"
+    }
+  },
+  "folds": [
+    {
+      "train_rows": 354324,
+      "train_positives": 11988,
+      "rows": 39259,
+      "positives": 1588,
+      "prevalence": 0.04044932372194911,
+      "train_start": 86400.0,
+      "train_end": 8745772.0,
+      "evaluation_start": 8745798.0,
+      "evaluation_end": 9894811.0,
+      "feature_columns": {
+        "full": [
+          "amount",
+          "log_amount",
+          "relative_day",
+          "hour_phase",
+          "hour_sin",
+          "hour_cos",
+          "has_identity",
+          "entity_known",
+          "prior_transaction_count",
+          "prior_mean_amount",
+          "prior_std_amount",
+          "amount_to_prior_mean",
+          "amount_zscore",
+          "prior_count_1h",
+          "prior_count_24h",
+          "seconds_since_previous",
+          "history_span_days",
+          "prior_distinct_products",
+          "prior_distinct_email_domains",
+          "prior_distinct_devices",
+          "entity_product_is_new",
+          "entity_email_is_new",
+          "entity_device_is_new",
+          "entity_hour_probability",
+          "prior_global_count",
+          "product_prior_frequency",
+          "email_prior_frequency",
+          "device_prior_frequency",
+          "product_card_prior_frequency",
+          "email_pair_prior_frequency",
+          "product_card_prior_support",
+          "email_pair_prior_support",
+          "email_domains_match",
+          "history_sufficient",
+          "frequent_entity",
+          "usual_amount"
+        ],
+        "without_time": [
+          "amount",
+          "log_amount",
+          "hour_phase",
+          "hour_sin",
+          "hour_cos",
+          "has_identity",
+          "entity_known",
+          "prior_transaction_count",
+          "prior_mean_amount",
+          "prior_std_amount",
+          "amount_to_prior_mean",
+          "amount_zscore",
+          "prior_count_1h",
+          "prior_count_24h",
+          "seconds_since_previous",
+          "history_span_days",
+          "prior_distinct_products",
+          "prior_distinct_email_domains",
+          "prior_distinct_devices",
+          "entity_product_is_new",
+          "entity_email_is_new",
+          "entity_device_is_new",
+          "entity_hour_probability",
+          "product_prior_frequency",
+          "email_prior_frequency",
+          "device_prior_frequency",
+          "product_card_prior_frequency",
+          "email_pair_prior_frequency",
+          "product_card_prior_support",
+          "email_pair_prior_support",
+          "email_domains_match",
+          "history_sufficient",
+          "frequent_entity",
+          "usual_amount"
+        ],
+        "matched": [
+          "amount",
+          "amount_to_prior_mean",
+          "device_prior_frequency",
+          "email_domains_match",
+          "email_pair_prior_frequency",
+          "email_prior_frequency",
+          "entity_device_is_new",
+          "entity_email_is_new",
+          "entity_hour_probability",
+          "entity_known",
+          "entity_product_is_new",
+          "has_identity",
+          "hour_cos",
+          "hour_sin",
+          "log_amount",
+          "prior_count_1h",
+          "prior_count_24h",
+          "prior_distinct_devices",
+          "prior_distinct_email_domains",
+          "prior_distinct_products",
+          "prior_mean_amount",
+          "prior_std_amount",
+          "prior_transaction_count",
+          "product_card_prior_frequency",
+          "product_prior_frequency",
+          "seconds_since_previous"
+        ]
+      },
+      "models": {
+        "raw": {
+          "average_precision": 0.083191461260612,
+          "roc_auc": 0.704026716259499,
+          "budgets": {
+            "0.01": {
+              "reviews": 393,
+              "tp": 33,
+              "fp": 360,
+              "fn": 1555,
+              "precision": 0.08396946564885496,
+              "recall": 0.020780856423173802
+            },
+            "0.05": {
+              "reviews": 1963,
+              "tp": 213,
+              "fp": 1750,
+              "fn": 1375,
+              "precision": 0.10850738665308202,
+              "recall": 0.1341309823677582
+            },
+            "0.1": {
+              "reviews": 3926,
+              "tp": 396,
+              "fp": 3530,
+              "fn": 1192,
+              "precision": 0.10086602139582272,
+              "recall": 0.24937027707808565
+            }
+          }
+        },
+        "full_logistic_regression": {
+          "average_precision": 0.1466459858469978,
+          "roc_auc": 0.7612205889422988,
+          "budgets": {
+            "0.01": {
+              "reviews": 393,
+              "tp": 108,
+              "fp": 285,
+              "fn": 1480,
+              "precision": 0.2748091603053435,
+              "recall": 0.06801007556675064
+            },
+            "0.05": {
+              "reviews": 1963,
+              "tp": 386,
+              "fp": 1577,
+              "fn": 1202,
+              "precision": 0.19663779928680591,
+              "recall": 0.24307304785894207
+            },
+            "0.1": {
+              "reviews": 3926,
+              "tp": 621,
+              "fp": 3305,
+              "fn": 967,
+              "precision": 0.15817626082526745,
+              "recall": 0.3910579345088161
+            }
+          }
+        },
+        "full_gradient_boosting": {
+          "average_precision": 0.21311969667848304,
+          "roc_auc": 0.8143144172731873,
+          "budgets": {
+            "0.01": {
+              "reviews": 393,
+              "tp": 159,
+              "fp": 234,
+              "fn": 1429,
+              "precision": 0.40458015267175573,
+              "recall": 0.10012594458438287
+            },
+            "0.05": {
+              "reviews": 1963,
+              "tp": 457,
+              "fp": 1506,
+              "fn": 1131,
+              "precision": 0.23280692817116658,
+              "recall": 0.2877833753148615
+            },
+            "0.1": {
+              "reviews": 3926,
+              "tp": 733,
+              "fp": 3193,
+              "fn": 855,
+              "precision": 0.18670402445236883,
+              "recall": 0.4615869017632242
+            }
+          }
+        },
+        "without_time_logistic_regression": {
+          "average_precision": 0.15542739299265232,
+          "roc_auc": 0.7689395299499773,
+          "budgets": {
+            "0.01": {
+              "reviews": 393,
+              "tp": 123,
+              "fp": 270,
+              "fn": 1465,
+              "precision": 0.31297709923664124,
+              "recall": 0.07745591939546599
+            },
+            "0.05": {
+              "reviews": 1963,
+              "tp": 392,
+              "fp": 1571,
+              "fn": 1196,
+              "precision": 0.19969434538970962,
+              "recall": 0.24685138539042822
+            },
+            "0.1": {
+              "reviews": 3926,
+              "tp": 632,
+              "fp": 3294,
+              "fn": 956,
+              "precision": 0.16097809475292918,
+              "recall": 0.3979848866498741
+            }
+          }
+        },
+        "without_time_gradient_boosting": {
+          "average_precision": 0.20997973978217194,
+          "roc_auc": 0.8079054055906411,
+          "budgets": {
+            "0.01": {
+              "reviews": 393,
+              "tp": 164,
+              "fp": 229,
+              "fn": 1424,
+              "precision": 0.4173027989821883,
+              "recall": 0.10327455919395466
+            },
+            "0.05": {
+              "reviews": 1963,
+              "tp": 474,
+              "fp": 1489,
+              "fn": 1114,
+              "precision": 0.2414671421293938,
+              "recall": 0.29848866498740556
+            },
+            "0.1": {
+              "reviews": 3926,
+              "tp": 723,
+              "fp": 3203,
+              "fn": 865,
+              "precision": 0.18415690269994905,
+              "recall": 0.4552896725440806
+            }
+          }
+        },
+        "matched_logistic_regression": {
+          "average_precision": 0.14559797087105414,
+          "roc_auc": 0.7727982064255509,
+          "budgets": {
+            "0.01": {
+              "reviews": 393,
+              "tp": 103,
+              "fp": 290,
+              "fn": 1485,
+              "precision": 0.26208651399491095,
+              "recall": 0.06486146095717885
+            },
+            "0.05": {
+              "reviews": 1963,
+              "tp": 386,
+              "fp": 1577,
+              "fn": 1202,
+              "precision": 0.19663779928680591,
+              "recall": 0.24307304785894207
+            },
+            "0.1": {
+              "reviews": 3926,
+              "tp": 626,
+              "fp": 3300,
+              "fn": 962,
+              "precision": 0.15944982170147734,
+              "recall": 0.39420654911838793
+            }
+          }
+        },
+        "matched_gradient_boosting": {
+          "average_precision": 0.19486098440115512,
+          "roc_auc": 0.8074483879955765,
+          "budgets": {
+            "0.01": {
+              "reviews": 393,
+              "tp": 146,
+              "fp": 247,
+              "fn": 1442,
+              "precision": 0.37150127226463103,
+              "recall": 0.09193954659949623
+            },
+            "0.05": {
+              "reviews": 1963,
+              "tp": 459,
+              "fp": 1504,
+              "fn": 1129,
+              "precision": 0.2338257768721345,
+              "recall": 0.2890428211586902
+            },
+            "0.1": {
+              "reviews": 3926,
+              "tp": 698,
+              "fp": 3228,
+              "fn": 890,
+              "precision": 0.17778909831889964,
+              "recall": 0.43954659949622166
+            }
+          }
+        },
+        "hybrid": {
+          "average_precision": 0.1477839001671021,
+          "roc_auc": 0.7910598869825302,
+          "budgets": {
+            "0.01": {
+              "reviews": 393,
+              "tp": 101,
+              "fp": 292,
+              "fn": 1487,
+              "precision": 0.25699745547073793,
+              "recall": 0.06360201511335013
+            },
+            "0.05": {
+              "reviews": 1963,
+              "tp": 349,
+              "fp": 1614,
+              "fn": 1239,
+              "precision": 0.17778909831889964,
+              "recall": 0.21977329974811083
+            },
+            "0.1": {
+              "reviews": 3926,
+              "tp": 629,
+              "fp": 3297,
+              "fn": 959,
+              "precision": 0.16021395822720327,
+              "recall": 0.396095717884131
+            }
+          }
+        }
+      },
+      "block_bootstrap": [
+        {
+          "method": "paired_nonoverlapping_time_block_percentile",
+          "hours": 6,
+          "blocks": 54,
+          "resamples": 1000,
+          "rate": 0.05,
+          "assumption": "Observed time blocks are exchangeable; cross-block entity dependence remains.",
+          "scope": "Conditional on fitted models and this evaluation window; not a future-period guarantee.",
+          "status": "ok",
+          "sample_rows_min": 28139,
+          "sample_rows_max": 49518,
+          "comparisons": {
+            "matched_gb_minus_raw": {
+              "observed_tp_gap": 246,
+              "ci_low": 170.25431886161505,
+              "ci_high": 311.44668772267863,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "full_gb_minus_raw": {
+              "observed_tp_gap": 244,
+              "ci_low": 181.9179339387725,
+              "ci_high": 321.7648187435415,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "without_time_gb_minus_full": {
+              "observed_tp_gap": 17,
+              "ci_low": -23.602343426062195,
+              "ci_high": 50.4531050304848,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": false
+            },
+            "matched_lr_minus_raw": {
+              "observed_tp_gap": 173,
+              "ci_low": 93.05019235685575,
+              "ci_high": 240.8659411549869,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            }
+          }
+        },
+        {
+          "method": "paired_nonoverlapping_time_block_percentile",
+          "hours": 24,
+          "blocks": 14,
+          "resamples": 1000,
+          "rate": 0.05,
+          "assumption": "Observed time blocks are exchangeable; cross-block entity dependence remains.",
+          "scope": "Conditional on fitted models and this evaluation window; not a future-period guarantee.",
+          "status": "ok",
+          "sample_rows_min": 28619,
+          "sample_rows_max": 44671,
+          "comparisons": {
+            "matched_gb_minus_raw": {
+              "observed_tp_gap": 246,
+              "ci_low": 150.5687415082205,
+              "ci_high": 325.245435029146,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "full_gb_minus_raw": {
+              "observed_tp_gap": 244,
+              "ci_low": 164.0868667924406,
+              "ci_high": 327.75912776780854,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "without_time_gb_minus_full": {
+              "observed_tp_gap": 17,
+              "ci_low": -20.582166838144673,
+              "ci_high": 48.61101280302619,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": false
+            },
+            "matched_lr_minus_raw": {
+              "observed_tp_gap": 173,
+              "ci_low": 73.8458782110003,
+              "ci_high": 257.92249080143375,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            }
+          }
+        }
+      ],
+      "overlap_raw_matched_gb": {
+        "reviews_each": 1963,
+        "shared_reviews": 326,
+        "raw_only_tp": 126,
+        "supervised_only_tp": 372,
+        "union_reviews": 3600,
+        "union_tp": 585
+      },
+      "label_delay_days": 0,
+      "fold": 1
+    },
+    {
+      "train_rows": 393583,
+      "train_positives": 13576,
+      "rows": 42992,
+      "positives": 1744,
+      "prevalence": 0.040565686639374765,
+      "train_start": 86400.0,
+      "train_end": 9894811.0,
+      "evaluation_start": 9894826.0,
+      "evaluation_end": 11043792.0,
+      "feature_columns": {
+        "full": [
+          "amount",
+          "log_amount",
+          "relative_day",
+          "hour_phase",
+          "hour_sin",
+          "hour_cos",
+          "has_identity",
+          "entity_known",
+          "prior_transaction_count",
+          "prior_mean_amount",
+          "prior_std_amount",
+          "amount_to_prior_mean",
+          "amount_zscore",
+          "prior_count_1h",
+          "prior_count_24h",
+          "seconds_since_previous",
+          "history_span_days",
+          "prior_distinct_products",
+          "prior_distinct_email_domains",
+          "prior_distinct_devices",
+          "entity_product_is_new",
+          "entity_email_is_new",
+          "entity_device_is_new",
+          "entity_hour_probability",
+          "prior_global_count",
+          "product_prior_frequency",
+          "email_prior_frequency",
+          "device_prior_frequency",
+          "product_card_prior_frequency",
+          "email_pair_prior_frequency",
+          "product_card_prior_support",
+          "email_pair_prior_support",
+          "email_domains_match",
+          "history_sufficient",
+          "frequent_entity",
+          "usual_amount"
+        ],
+        "without_time": [
+          "amount",
+          "log_amount",
+          "hour_phase",
+          "hour_sin",
+          "hour_cos",
+          "has_identity",
+          "entity_known",
+          "prior_transaction_count",
+          "prior_mean_amount",
+          "prior_std_amount",
+          "amount_to_prior_mean",
+          "amount_zscore",
+          "prior_count_1h",
+          "prior_count_24h",
+          "seconds_since_previous",
+          "history_span_days",
+          "prior_distinct_products",
+          "prior_distinct_email_domains",
+          "prior_distinct_devices",
+          "entity_product_is_new",
+          "entity_email_is_new",
+          "entity_device_is_new",
+          "entity_hour_probability",
+          "product_prior_frequency",
+          "email_prior_frequency",
+          "device_prior_frequency",
+          "product_card_prior_frequency",
+          "email_pair_prior_frequency",
+          "product_card_prior_support",
+          "email_pair_prior_support",
+          "email_domains_match",
+          "history_sufficient",
+          "frequent_entity",
+          "usual_amount"
+        ],
+        "matched": [
+          "amount",
+          "amount_to_prior_mean",
+          "device_prior_frequency",
+          "email_domains_match",
+          "email_pair_prior_frequency",
+          "email_prior_frequency",
+          "entity_device_is_new",
+          "entity_email_is_new",
+          "entity_hour_probability",
+          "entity_known",
+          "entity_product_is_new",
+          "has_identity",
+          "hour_cos",
+          "hour_sin",
+          "log_amount",
+          "prior_count_1h",
+          "prior_count_24h",
+          "prior_distinct_devices",
+          "prior_distinct_email_domains",
+          "prior_distinct_products",
+          "prior_mean_amount",
+          "prior_std_amount",
+          "prior_transaction_count",
+          "product_card_prior_frequency",
+          "product_prior_frequency",
+          "seconds_since_previous"
+        ]
+      },
+      "models": {
+        "raw": {
+          "average_precision": 0.06981142961047386,
+          "roc_auc": 0.6712522077801047,
+          "budgets": {
+            "0.01": {
+              "reviews": 430,
+              "tp": 32,
+              "fp": 398,
+              "fn": 1712,
+              "precision": 0.07441860465116279,
+              "recall": 0.01834862385321101
+            },
+            "0.05": {
+              "reviews": 2150,
+              "tp": 194,
+              "fp": 1956,
+              "fn": 1550,
+              "precision": 0.09023255813953489,
+              "recall": 0.11123853211009174
+            },
+            "0.1": {
+              "reviews": 4300,
+              "tp": 341,
+              "fp": 3959,
+              "fn": 1403,
+              "precision": 0.07930232558139536,
+              "recall": 0.19552752293577982
+            }
+          }
+        },
+        "full_logistic_regression": {
+          "average_precision": 0.17146960645453058,
+          "roc_auc": 0.7831946174982741,
+          "budgets": {
+            "0.01": {
+              "reviews": 430,
+              "tp": 130,
+              "fp": 300,
+              "fn": 1614,
+              "precision": 0.3023255813953488,
+              "recall": 0.07454128440366972
+            },
+            "0.05": {
+              "reviews": 2150,
+              "tp": 523,
+              "fp": 1627,
+              "fn": 1221,
+              "precision": 0.24325581395348836,
+              "recall": 0.2998853211009174
+            },
+            "0.1": {
+              "reviews": 4300,
+              "tp": 787,
+              "fp": 3513,
+              "fn": 957,
+              "precision": 0.18302325581395348,
+              "recall": 0.45126146788990823
+            }
+          }
+        },
+        "full_gradient_boosting": {
+          "average_precision": 0.2024320516979311,
+          "roc_auc": 0.8246736580722737,
+          "budgets": {
+            "0.01": {
+              "reviews": 430,
+              "tp": 142,
+              "fp": 288,
+              "fn": 1602,
+              "precision": 0.3302325581395349,
+              "recall": 0.08142201834862385
+            },
+            "0.05": {
+              "reviews": 2150,
+              "tp": 539,
+              "fp": 1611,
+              "fn": 1205,
+              "precision": 0.25069767441860463,
+              "recall": 0.30905963302752293
+            },
+            "0.1": {
+              "reviews": 4300,
+              "tp": 880,
+              "fp": 3420,
+              "fn": 864,
+              "precision": 0.20465116279069767,
+              "recall": 0.5045871559633027
+            }
+          }
+        },
+        "without_time_logistic_regression": {
+          "average_precision": 0.16909706597971583,
+          "roc_auc": 0.78367390123113,
+          "budgets": {
+            "0.01": {
+              "reviews": 430,
+              "tp": 131,
+              "fp": 299,
+              "fn": 1613,
+              "precision": 0.30465116279069765,
+              "recall": 0.07511467889908256
+            },
+            "0.05": {
+              "reviews": 2150,
+              "tp": 497,
+              "fp": 1653,
+              "fn": 1247,
+              "precision": 0.23116279069767443,
+              "recall": 0.2849770642201835
+            },
+            "0.1": {
+              "reviews": 4300,
+              "tp": 779,
+              "fp": 3521,
+              "fn": 965,
+              "precision": 0.1811627906976744,
+              "recall": 0.4466743119266055
+            }
+          }
+        },
+        "without_time_gradient_boosting": {
+          "average_precision": 0.20954901110453691,
+          "roc_auc": 0.8212751544028156,
+          "budgets": {
+            "0.01": {
+              "reviews": 430,
+              "tp": 149,
+              "fp": 281,
+              "fn": 1595,
+              "precision": 0.34651162790697676,
+              "recall": 0.08543577981651376
+            },
+            "0.05": {
+              "reviews": 2150,
+              "tp": 615,
+              "fp": 1535,
+              "fn": 1129,
+              "precision": 0.28604651162790695,
+              "recall": 0.3526376146788991
+            },
+            "0.1": {
+              "reviews": 4300,
+              "tp": 864,
+              "fp": 3436,
+              "fn": 880,
+              "precision": 0.20093023255813955,
+              "recall": 0.4954128440366973
+            }
+          }
+        },
+        "matched_logistic_regression": {
+          "average_precision": 0.1706546561809271,
+          "roc_auc": 0.7897099181011167,
+          "budgets": {
+            "0.01": {
+              "reviews": 430,
+              "tp": 143,
+              "fp": 287,
+              "fn": 1601,
+              "precision": 0.3325581395348837,
+              "recall": 0.08199541284403669
+            },
+            "0.05": {
+              "reviews": 2150,
+              "tp": 510,
+              "fp": 1640,
+              "fn": 1234,
+              "precision": 0.2372093023255814,
+              "recall": 0.29243119266055045
+            },
+            "0.1": {
+              "reviews": 4300,
+              "tp": 771,
+              "fp": 3529,
+              "fn": 973,
+              "precision": 0.17930232558139536,
+              "recall": 0.4420871559633027
+            }
+          }
+        },
+        "matched_gradient_boosting": {
+          "average_precision": 0.1855840061555875,
+          "roc_auc": 0.8128018355963659,
+          "budgets": {
+            "0.01": {
+              "reviews": 430,
+              "tp": 131,
+              "fp": 299,
+              "fn": 1613,
+              "precision": 0.30465116279069765,
+              "recall": 0.07511467889908256
+            },
+            "0.05": {
+              "reviews": 2150,
+              "tp": 509,
+              "fp": 1641,
+              "fn": 1235,
+              "precision": 0.23674418604651162,
+              "recall": 0.2918577981651376
+            },
+            "0.1": {
+              "reviews": 4300,
+              "tp": 860,
+              "fp": 3440,
+              "fn": 884,
+              "precision": 0.2,
+              "recall": 0.49311926605504586
+            }
+          }
+        },
+        "hybrid": {
+          "average_precision": 0.13330164485553522,
+          "roc_auc": 0.786355140488324,
+          "budgets": {
+            "0.01": {
+              "reviews": 430,
+              "tp": 77,
+              "fp": 353,
+              "fn": 1667,
+              "precision": 0.17906976744186046,
+              "recall": 0.04415137614678899
+            },
+            "0.05": {
+              "reviews": 2150,
+              "tp": 389,
+              "fp": 1761,
+              "fn": 1355,
+              "precision": 0.18093023255813953,
+              "recall": 0.22305045871559634
+            },
+            "0.1": {
+              "reviews": 4300,
+              "tp": 680,
+              "fp": 3620,
+              "fn": 1064,
+              "precision": 0.15813953488372093,
+              "recall": 0.38990825688073394
+            }
+          }
+        }
+      },
+      "block_bootstrap": [
+        {
+          "method": "paired_nonoverlapping_time_block_percentile",
+          "hours": 6,
+          "blocks": 54,
+          "resamples": 1000,
+          "rate": 0.05,
+          "assumption": "Observed time blocks are exchangeable; cross-block entity dependence remains.",
+          "scope": "Conditional on fitted models and this evaluation window; not a future-period guarantee.",
+          "status": "ok",
+          "sample_rows_min": 31696,
+          "sample_rows_max": 55405,
+          "comparisons": {
+            "matched_gb_minus_raw": {
+              "observed_tp_gap": 315,
+              "ci_low": 207.37451641344487,
+              "ci_high": 421.19504535641363,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "full_gb_minus_raw": {
+              "observed_tp_gap": 345,
+              "ci_low": 236.2178836062252,
+              "ci_high": 458.82468606741855,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "without_time_gb_minus_full": {
+              "observed_tp_gap": 76,
+              "ci_low": 21.321416115108033,
+              "ci_high": 113.6430780218957,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "matched_lr_minus_raw": {
+              "observed_tp_gap": 316,
+              "ci_low": 182.1604110393297,
+              "ci_high": 444.70763464477346,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            }
+          }
+        },
+        {
+          "method": "paired_nonoverlapping_time_block_percentile",
+          "hours": 24,
+          "blocks": 14,
+          "resamples": 1000,
+          "rate": 0.05,
+          "assumption": "Observed time blocks are exchangeable; cross-block entity dependence remains.",
+          "scope": "Conditional on fitted models and this evaluation window; not a future-period guarantee.",
+          "status": "ok",
+          "sample_rows_min": 35017,
+          "sample_rows_max": 50220,
+          "comparisons": {
+            "matched_gb_minus_raw": {
+              "observed_tp_gap": 315,
+              "ci_low": 199.44820888725602,
+              "ci_high": 445.81118590903213,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "full_gb_minus_raw": {
+              "observed_tp_gap": 345,
+              "ci_low": 252.43385852752348,
+              "ci_high": 460.03638601728784,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "without_time_gb_minus_full": {
+              "observed_tp_gap": 76,
+              "ci_low": 17.38316951336224,
+              "ci_high": 110.7556226511548,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "matched_lr_minus_raw": {
+              "observed_tp_gap": 316,
+              "ci_low": 168.99198450972963,
+              "ci_high": 442.53556828440924,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            }
+          }
+        }
+      ],
+      "overlap_raw_matched_gb": {
+        "reviews_each": 2150,
+        "shared_reviews": 395,
+        "raw_only_tp": 121,
+        "supervised_only_tp": 436,
+        "union_reviews": 3905,
+        "union_tp": 630
+      },
+      "label_delay_days": 0,
+      "fold": 2
+    },
+    {
+      "train_rows": 436575,
+      "train_positives": 15320,
+      "rows": 35857,
+      "positives": 1279,
+      "prevalence": 0.035669464818584934,
+      "train_start": 86400.0,
+      "train_end": 11043792.0,
+      "evaluation_start": 11043833.0,
+      "evaluation_end": 12192842.0,
+      "feature_columns": {
+        "full": [
+          "amount",
+          "log_amount",
+          "relative_day",
+          "hour_phase",
+          "hour_sin",
+          "hour_cos",
+          "has_identity",
+          "entity_known",
+          "prior_transaction_count",
+          "prior_mean_amount",
+          "prior_std_amount",
+          "amount_to_prior_mean",
+          "amount_zscore",
+          "prior_count_1h",
+          "prior_count_24h",
+          "seconds_since_previous",
+          "history_span_days",
+          "prior_distinct_products",
+          "prior_distinct_email_domains",
+          "prior_distinct_devices",
+          "entity_product_is_new",
+          "entity_email_is_new",
+          "entity_device_is_new",
+          "entity_hour_probability",
+          "prior_global_count",
+          "product_prior_frequency",
+          "email_prior_frequency",
+          "device_prior_frequency",
+          "product_card_prior_frequency",
+          "email_pair_prior_frequency",
+          "product_card_prior_support",
+          "email_pair_prior_support",
+          "email_domains_match",
+          "history_sufficient",
+          "frequent_entity",
+          "usual_amount"
+        ],
+        "without_time": [
+          "amount",
+          "log_amount",
+          "hour_phase",
+          "hour_sin",
+          "hour_cos",
+          "has_identity",
+          "entity_known",
+          "prior_transaction_count",
+          "prior_mean_amount",
+          "prior_std_amount",
+          "amount_to_prior_mean",
+          "amount_zscore",
+          "prior_count_1h",
+          "prior_count_24h",
+          "seconds_since_previous",
+          "history_span_days",
+          "prior_distinct_products",
+          "prior_distinct_email_domains",
+          "prior_distinct_devices",
+          "entity_product_is_new",
+          "entity_email_is_new",
+          "entity_device_is_new",
+          "entity_hour_probability",
+          "product_prior_frequency",
+          "email_prior_frequency",
+          "device_prior_frequency",
+          "product_card_prior_frequency",
+          "email_pair_prior_frequency",
+          "product_card_prior_support",
+          "email_pair_prior_support",
+          "email_domains_match",
+          "history_sufficient",
+          "frequent_entity",
+          "usual_amount"
+        ],
+        "matched": [
+          "amount",
+          "amount_to_prior_mean",
+          "device_prior_frequency",
+          "email_domains_match",
+          "email_pair_prior_frequency",
+          "email_prior_frequency",
+          "entity_device_is_new",
+          "entity_email_is_new",
+          "entity_hour_probability",
+          "entity_known",
+          "entity_product_is_new",
+          "has_identity",
+          "hour_cos",
+          "hour_sin",
+          "log_amount",
+          "prior_count_1h",
+          "prior_count_24h",
+          "prior_distinct_devices",
+          "prior_distinct_email_domains",
+          "prior_distinct_products",
+          "prior_mean_amount",
+          "prior_std_amount",
+          "prior_transaction_count",
+          "product_card_prior_frequency",
+          "product_prior_frequency",
+          "seconds_since_previous"
+        ]
+      },
+      "models": {
+        "raw": {
+          "average_precision": 0.06490608636240769,
+          "roc_auc": 0.6720554306721801,
+          "budgets": {
+            "0.01": {
+              "reviews": 359,
+              "tp": 32,
+              "fp": 327,
+              "fn": 1247,
+              "precision": 0.08913649025069638,
+              "recall": 0.02501954652071931
+            },
+            "0.05": {
+              "reviews": 1793,
+              "tp": 139,
+              "fp": 1654,
+              "fn": 1140,
+              "precision": 0.07752370329057445,
+              "recall": 0.10867865519937452
+            },
+            "0.1": {
+              "reviews": 3586,
+              "tp": 296,
+              "fp": 3290,
+              "fn": 983,
+              "precision": 0.08254322364751812,
+              "recall": 0.23143080531665364
+            }
+          }
+        },
+        "full_logistic_regression": {
+          "average_precision": 0.13866925324839954,
+          "roc_auc": 0.752403569706382,
+          "budgets": {
+            "0.01": {
+              "reviews": 359,
+              "tp": 115,
+              "fp": 244,
+              "fn": 1164,
+              "precision": 0.3203342618384401,
+              "recall": 0.08991399530883502
+            },
+            "0.05": {
+              "reviews": 1793,
+              "tp": 335,
+              "fp": 1458,
+              "fn": 944,
+              "precision": 0.1868377021751255,
+              "recall": 0.2619233776387803
+            },
+            "0.1": {
+              "reviews": 3586,
+              "tp": 478,
+              "fp": 3108,
+              "fn": 801,
+              "precision": 0.13329615170105968,
+              "recall": 0.3737294761532447
+            }
+          }
+        },
+        "full_gradient_boosting": {
+          "average_precision": 0.18458630052002306,
+          "roc_auc": 0.8040471416540167,
+          "budgets": {
+            "0.01": {
+              "reviews": 359,
+              "tp": 127,
+              "fp": 232,
+              "fn": 1152,
+              "precision": 0.35376044568245124,
+              "recall": 0.09929632525410477
+            },
+            "0.05": {
+              "reviews": 1793,
+              "tp": 423,
+              "fp": 1370,
+              "fn": 856,
+              "precision": 0.23591745677635248,
+              "recall": 0.3307271305707584
+            },
+            "0.1": {
+              "reviews": 3586,
+              "tp": 603,
+              "fp": 2983,
+              "fn": 676,
+              "precision": 0.16815393195761294,
+              "recall": 0.47146207974980453
+            }
+          }
+        },
+        "without_time_logistic_regression": {
+          "average_precision": 0.1353969292297177,
+          "roc_auc": 0.7517888983902459,
+          "budgets": {
+            "0.01": {
+              "reviews": 359,
+              "tp": 108,
+              "fp": 251,
+              "fn": 1171,
+              "precision": 0.3008356545961003,
+              "recall": 0.08444096950742767
+            },
+            "0.05": {
+              "reviews": 1793,
+              "tp": 338,
+              "fp": 1455,
+              "fn": 941,
+              "precision": 0.18851087562744004,
+              "recall": 0.2642689601250977
+            },
+            "0.1": {
+              "reviews": 3586,
+              "tp": 480,
+              "fp": 3106,
+              "fn": 799,
+              "precision": 0.13385387618516453,
+              "recall": 0.3752931978107897
+            }
+          }
+        },
+        "without_time_gradient_boosting": {
+          "average_precision": 0.17667189068682798,
+          "roc_auc": 0.8046504054628326,
+          "budgets": {
+            "0.01": {
+              "reviews": 359,
+              "tp": 113,
+              "fp": 246,
+              "fn": 1166,
+              "precision": 0.3147632311977716,
+              "recall": 0.08835027365129007
+            },
+            "0.05": {
+              "reviews": 1793,
+              "tp": 422,
+              "fp": 1371,
+              "fn": 857,
+              "precision": 0.23535973229224763,
+              "recall": 0.3299452697419859
+            },
+            "0.1": {
+              "reviews": 3586,
+              "tp": 587,
+              "fp": 2999,
+              "fn": 692,
+              "precision": 0.16369213608477412,
+              "recall": 0.4589523064894449
+            }
+          }
+        },
+        "matched_logistic_regression": {
+          "average_precision": 0.13484141533709593,
+          "roc_auc": 0.7538924020393593,
+          "budgets": {
+            "0.01": {
+              "reviews": 359,
+              "tp": 110,
+              "fp": 249,
+              "fn": 1169,
+              "precision": 0.3064066852367688,
+              "recall": 0.08600469116497264
+            },
+            "0.05": {
+              "reviews": 1793,
+              "tp": 335,
+              "fp": 1458,
+              "fn": 944,
+              "precision": 0.1868377021751255,
+              "recall": 0.2619233776387803
+            },
+            "0.1": {
+              "reviews": 3586,
+              "tp": 470,
+              "fp": 3116,
+              "fn": 809,
+              "precision": 0.13106525376464026,
+              "recall": 0.3674745895230649
+            }
+          }
+        },
+        "matched_gradient_boosting": {
+          "average_precision": 0.17268807331716723,
+          "roc_auc": 0.8028616088243865,
+          "budgets": {
+            "0.01": {
+              "reviews": 359,
+              "tp": 123,
+              "fp": 236,
+              "fn": 1156,
+              "precision": 0.3426183844011142,
+              "recall": 0.09616888193901485
+            },
+            "0.05": {
+              "reviews": 1793,
+              "tp": 390,
+              "fp": 1403,
+              "fn": 889,
+              "precision": 0.21751254880089235,
+              "recall": 0.3049257232212666
+            },
+            "0.1": {
+              "reviews": 3586,
+              "tp": 592,
+              "fp": 2994,
+              "fn": 687,
+              "precision": 0.16508644729503624,
+              "recall": 0.4628616106333073
+            }
+          }
+        },
+        "hybrid": {
+          "average_precision": 0.126223944870921,
+          "roc_auc": 0.7777415315255791,
+          "budgets": {
+            "0.01": {
+              "reviews": 359,
+              "tp": 83,
+              "fp": 276,
+              "fn": 1196,
+              "precision": 0.23119777158774374,
+              "recall": 0.06489444878811572
+            },
+            "0.05": {
+              "reviews": 1793,
+              "tp": 305,
+              "fp": 1488,
+              "fn": 974,
+              "precision": 0.1701059676519799,
+              "recall": 0.23846755277560594
+            },
+            "0.1": {
+              "reviews": 3586,
+              "tp": 508,
+              "fp": 3078,
+              "fn": 771,
+              "precision": 0.14166201896263245,
+              "recall": 0.3971853010164191
+            }
+          }
+        }
+      },
+      "block_bootstrap": [
+        {
+          "method": "paired_nonoverlapping_time_block_percentile",
+          "hours": 6,
+          "blocks": 54,
+          "resamples": 1000,
+          "rate": 0.05,
+          "assumption": "Observed time blocks are exchangeable; cross-block entity dependence remains.",
+          "scope": "Conditional on fitted models and this evaluation window; not a future-period guarantee.",
+          "status": "ok",
+          "sample_rows_min": 26989,
+          "sample_rows_max": 43627,
+          "comparisons": {
+            "matched_gb_minus_raw": {
+              "observed_tp_gap": 251,
+              "ci_low": 182.28626259021226,
+              "ci_high": 327.7660966513861,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "full_gb_minus_raw": {
+              "observed_tp_gap": 284,
+              "ci_low": 208.55310449077464,
+              "ci_high": 370.75133633585443,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "without_time_gb_minus_full": {
+              "observed_tp_gap": -1,
+              "ci_low": -31.696379817413455,
+              "ci_high": 30.62300580020324,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": false
+            },
+            "matched_lr_minus_raw": {
+              "observed_tp_gap": 196,
+              "ci_low": 105.2893230490489,
+              "ci_high": 299.3238192776484,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            }
+          }
+        },
+        {
+          "method": "paired_nonoverlapping_time_block_percentile",
+          "hours": 24,
+          "blocks": 14,
+          "resamples": 1000,
+          "rate": 0.05,
+          "assumption": "Observed time blocks are exchangeable; cross-block entity dependence remains.",
+          "scope": "Conditional on fitted models and this evaluation window; not a future-period guarantee.",
+          "status": "ok",
+          "sample_rows_min": 30213,
+          "sample_rows_max": 40126,
+          "comparisons": {
+            "matched_gb_minus_raw": {
+              "observed_tp_gap": 251,
+              "ci_low": 195.26335811454035,
+              "ci_high": 301.7112191498784,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "full_gb_minus_raw": {
+              "observed_tp_gap": 284,
+              "ci_low": 221.61328080560233,
+              "ci_high": 343.6281561932242,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "without_time_gb_minus_full": {
+              "observed_tp_gap": -1,
+              "ci_low": -29.878736074009474,
+              "ci_high": 24.0967373403786,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": false
+            },
+            "matched_lr_minus_raw": {
+              "observed_tp_gap": 196,
+              "ci_low": 119.72405885364955,
+              "ci_high": 274.1812441382642,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            }
+          }
+        }
+      ],
+      "overlap_raw_matched_gb": {
+        "reviews_each": 1793,
+        "shared_reviews": 306,
+        "raw_only_tp": 82,
+        "supervised_only_tp": 333,
+        "union_reviews": 3280,
+        "union_tp": 472
+      },
+      "label_delay_days": 0,
+      "fold": 3
+    },
+    {
+      "train_rows": 331489,
+      "train_positives": 11205,
+      "rows": 39259,
+      "positives": 1588,
+      "prevalence": 0.04044932372194911,
+      "train_start": 86400.0,
+      "train_end": 8140967.0,
+      "evaluation_start": 8745798.0,
+      "evaluation_end": 9894811.0,
+      "feature_columns": {
+        "full": [
+          "amount",
+          "log_amount",
+          "relative_day",
+          "hour_phase",
+          "hour_sin",
+          "hour_cos",
+          "has_identity",
+          "entity_known",
+          "prior_transaction_count",
+          "prior_mean_amount",
+          "prior_std_amount",
+          "amount_to_prior_mean",
+          "amount_zscore",
+          "prior_count_1h",
+          "prior_count_24h",
+          "seconds_since_previous",
+          "history_span_days",
+          "prior_distinct_products",
+          "prior_distinct_email_domains",
+          "prior_distinct_devices",
+          "entity_product_is_new",
+          "entity_email_is_new",
+          "entity_device_is_new",
+          "entity_hour_probability",
+          "prior_global_count",
+          "product_prior_frequency",
+          "email_prior_frequency",
+          "device_prior_frequency",
+          "product_card_prior_frequency",
+          "email_pair_prior_frequency",
+          "product_card_prior_support",
+          "email_pair_prior_support",
+          "email_domains_match",
+          "history_sufficient",
+          "frequent_entity",
+          "usual_amount"
+        ],
+        "without_time": [
+          "amount",
+          "log_amount",
+          "hour_phase",
+          "hour_sin",
+          "hour_cos",
+          "has_identity",
+          "entity_known",
+          "prior_transaction_count",
+          "prior_mean_amount",
+          "prior_std_amount",
+          "amount_to_prior_mean",
+          "amount_zscore",
+          "prior_count_1h",
+          "prior_count_24h",
+          "seconds_since_previous",
+          "history_span_days",
+          "prior_distinct_products",
+          "prior_distinct_email_domains",
+          "prior_distinct_devices",
+          "entity_product_is_new",
+          "entity_email_is_new",
+          "entity_device_is_new",
+          "entity_hour_probability",
+          "product_prior_frequency",
+          "email_prior_frequency",
+          "device_prior_frequency",
+          "product_card_prior_frequency",
+          "email_pair_prior_frequency",
+          "product_card_prior_support",
+          "email_pair_prior_support",
+          "email_domains_match",
+          "history_sufficient",
+          "frequent_entity",
+          "usual_amount"
+        ],
+        "matched": [
+          "amount",
+          "amount_to_prior_mean",
+          "device_prior_frequency",
+          "email_domains_match",
+          "email_pair_prior_frequency",
+          "email_prior_frequency",
+          "entity_device_is_new",
+          "entity_email_is_new",
+          "entity_hour_probability",
+          "entity_known",
+          "entity_product_is_new",
+          "has_identity",
+          "hour_cos",
+          "hour_sin",
+          "log_amount",
+          "prior_count_1h",
+          "prior_count_24h",
+          "prior_distinct_devices",
+          "prior_distinct_email_domains",
+          "prior_distinct_products",
+          "prior_mean_amount",
+          "prior_std_amount",
+          "prior_transaction_count",
+          "product_card_prior_frequency",
+          "product_prior_frequency",
+          "seconds_since_previous"
+        ]
+      },
+      "models": {
+        "raw": {
+          "average_precision": 0.0830199933774074,
+          "roc_auc": 0.7020594067542351,
+          "budgets": {
+            "0.01": {
+              "reviews": 393,
+              "tp": 38,
+              "fp": 355,
+              "fn": 1550,
+              "precision": 0.09669211195928754,
+              "recall": 0.02392947103274559
+            },
+            "0.05": {
+              "reviews": 1963,
+              "tp": 210,
+              "fp": 1753,
+              "fn": 1378,
+              "precision": 0.10697911360163016,
+              "recall": 0.13224181360201512
+            },
+            "0.1": {
+              "reviews": 3926,
+              "tp": 400,
+              "fp": 3526,
+              "fn": 1188,
+              "precision": 0.10188487009679063,
+              "recall": 0.2518891687657431
+            }
+          }
+        },
+        "full_logistic_regression": {
+          "average_precision": 0.14353242041719366,
+          "roc_auc": 0.7523946388013898,
+          "budgets": {
+            "0.01": {
+              "reviews": 393,
+              "tp": 109,
+              "fp": 284,
+              "fn": 1479,
+              "precision": 0.27735368956743,
+              "recall": 0.06863979848866499
+            },
+            "0.05": {
+              "reviews": 1963,
+              "tp": 383,
+              "fp": 1580,
+              "fn": 1205,
+              "precision": 0.19510952623535405,
+              "recall": 0.241183879093199
+            },
+            "0.1": {
+              "reviews": 3926,
+              "tp": 626,
+              "fp": 3300,
+              "fn": 962,
+              "precision": 0.15944982170147734,
+              "recall": 0.39420654911838793
+            }
+          }
+        },
+        "full_gradient_boosting": {
+          "average_precision": 0.19655445190226892,
+          "roc_auc": 0.7951944423103193,
+          "budgets": {
+            "0.01": {
+              "reviews": 393,
+              "tp": 151,
+              "fp": 242,
+              "fn": 1437,
+              "precision": 0.3842239185750636,
+              "recall": 0.095088161209068
+            },
+            "0.05": {
+              "reviews": 1963,
+              "tp": 455,
+              "fp": 1508,
+              "fn": 1133,
+              "precision": 0.23178807947019867,
+              "recall": 0.2865239294710327
+            },
+            "0.1": {
+              "reviews": 3926,
+              "tp": 709,
+              "fp": 3217,
+              "fn": 879,
+              "precision": 0.1805909322465614,
+              "recall": 0.4464735516372796
+            }
+          }
+        },
+        "without_time_logistic_regression": {
+          "average_precision": 0.15111993213081235,
+          "roc_auc": 0.761325668135502,
+          "budgets": {
+            "0.01": {
+              "reviews": 393,
+              "tp": 116,
+              "fp": 277,
+              "fn": 1472,
+              "precision": 0.2951653944020356,
+              "recall": 0.07304785894206549
+            },
+            "0.05": {
+              "reviews": 1963,
+              "tp": 393,
+              "fp": 1570,
+              "fn": 1195,
+              "precision": 0.20020376974019358,
+              "recall": 0.24748110831234257
+            },
+            "0.1": {
+              "reviews": 3926,
+              "tp": 634,
+              "fp": 3292,
+              "fn": 954,
+              "precision": 0.16148751910341314,
+              "recall": 0.3992443324937028
+            }
+          }
+        },
+        "without_time_gradient_boosting": {
+          "average_precision": 0.18703504668270493,
+          "roc_auc": 0.7963377176398043,
+          "budgets": {
+            "0.01": {
+              "reviews": 393,
+              "tp": 146,
+              "fp": 247,
+              "fn": 1442,
+              "precision": 0.37150127226463103,
+              "recall": 0.09193954659949623
+            },
+            "0.05": {
+              "reviews": 1963,
+              "tp": 410,
+              "fp": 1553,
+              "fn": 1178,
+              "precision": 0.2088639836984208,
+              "recall": 0.25818639798488663
+            },
+            "0.1": {
+              "reviews": 3926,
+              "tp": 659,
+              "fp": 3267,
+              "fn": 929,
+              "precision": 0.16785532348446255,
+              "recall": 0.4149874055415617
+            }
+          }
+        },
+        "matched_logistic_regression": {
+          "average_precision": 0.14438399730262313,
+          "roc_auc": 0.7698231914694016,
+          "budgets": {
+            "0.01": {
+              "reviews": 393,
+              "tp": 102,
+              "fp": 291,
+              "fn": 1486,
+              "precision": 0.2595419847328244,
+              "recall": 0.06423173803526448
+            },
+            "0.05": {
+              "reviews": 1963,
+              "tp": 383,
+              "fp": 1580,
+              "fn": 1205,
+              "precision": 0.19510952623535405,
+              "recall": 0.241183879093199
+            },
+            "0.1": {
+              "reviews": 3926,
+              "tp": 616,
+              "fp": 3310,
+              "fn": 972,
+              "precision": 0.15690269994905756,
+              "recall": 0.3879093198992443
+            }
+          }
+        },
+        "matched_gradient_boosting": {
+          "average_precision": 0.1864247496499379,
+          "roc_auc": 0.7879045858191432,
+          "budgets": {
+            "0.01": {
+              "reviews": 393,
+              "tp": 150,
+              "fp": 243,
+              "fn": 1438,
+              "precision": 0.3816793893129771,
+              "recall": 0.09445843828715365
+            },
+            "0.05": {
+              "reviews": 1963,
+              "tp": 407,
+              "fp": 1556,
+              "fn": 1181,
+              "precision": 0.20733571064696893,
+              "recall": 0.25629722921914355
+            },
+            "0.1": {
+              "reviews": 3926,
+              "tp": 670,
+              "fp": 3256,
+              "fn": 918,
+              "precision": 0.1706571574121243,
+              "recall": 0.42191435768261965
+            }
+          }
+        },
+        "hybrid": {
+          "average_precision": 0.1461842777862789,
+          "roc_auc": 0.7821707990572228,
+          "budgets": {
+            "0.01": {
+              "reviews": 393,
+              "tp": 109,
+              "fp": 284,
+              "fn": 1479,
+              "precision": 0.27735368956743,
+              "recall": 0.06863979848866499
+            },
+            "0.05": {
+              "reviews": 1963,
+              "tp": 371,
+              "fp": 1592,
+              "fn": 1217,
+              "precision": 0.1889964340295466,
+              "recall": 0.2336272040302267
+            },
+            "0.1": {
+              "reviews": 3926,
+              "tp": 567,
+              "fp": 3359,
+              "fn": 1021,
+              "precision": 0.1444218033622007,
+              "recall": 0.3570528967254408
+            }
+          }
+        }
+      },
+      "block_bootstrap": [
+        {
+          "method": "paired_nonoverlapping_time_block_percentile",
+          "hours": 6,
+          "blocks": 54,
+          "resamples": 1000,
+          "rate": 0.05,
+          "assumption": "Observed time blocks are exchangeable; cross-block entity dependence remains.",
+          "scope": "Conditional on fitted models and this evaluation window; not a future-period guarantee.",
+          "status": "ok",
+          "sample_rows_min": 28139,
+          "sample_rows_max": 49518,
+          "comparisons": {
+            "matched_gb_minus_raw": {
+              "observed_tp_gap": 197,
+              "ci_low": 126.16034385179505,
+              "ci_high": 275.4905089043572,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "full_gb_minus_raw": {
+              "observed_tp_gap": 245,
+              "ci_low": 167.82252863233822,
+              "ci_high": 323.2862594113436,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "without_time_gb_minus_full": {
+              "observed_tp_gap": -45,
+              "ci_low": -99.86699862330606,
+              "ci_high": 0.9672251384614703,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": false
+            },
+            "matched_lr_minus_raw": {
+              "observed_tp_gap": 173,
+              "ci_low": 91.67166588145147,
+              "ci_high": 240.489079340761,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            }
+          }
+        },
+        {
+          "method": "paired_nonoverlapping_time_block_percentile",
+          "hours": 24,
+          "blocks": 14,
+          "resamples": 1000,
+          "rate": 0.05,
+          "assumption": "Observed time blocks are exchangeable; cross-block entity dependence remains.",
+          "scope": "Conditional on fitted models and this evaluation window; not a future-period guarantee.",
+          "status": "ok",
+          "sample_rows_min": 28619,
+          "sample_rows_max": 44671,
+          "comparisons": {
+            "matched_gb_minus_raw": {
+              "observed_tp_gap": 197,
+              "ci_low": 109.6598428117882,
+              "ci_high": 286.92046118264903,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "full_gb_minus_raw": {
+              "observed_tp_gap": 245,
+              "ci_low": 139.00037929053013,
+              "ci_high": 345.33803553768735,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "without_time_gb_minus_full": {
+              "observed_tp_gap": -45,
+              "ci_low": -97.33403091424917,
+              "ci_high": 1.0172933175268535,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": false
+            },
+            "matched_lr_minus_raw": {
+              "observed_tp_gap": 173,
+              "ci_low": 74.99319023214213,
+              "ci_high": 254.81379500795967,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            }
+          }
+        }
+      ],
+      "overlap_raw_matched_gb": {
+        "reviews_each": 1963,
+        "shared_reviews": 413,
+        "raw_only_tp": 120,
+        "supervised_only_tp": 317,
+        "union_reviews": 3513,
+        "union_tp": 527
+      },
+      "label_delay_days": 7,
+      "fold": 1
+    },
+    {
+      "train_rows": 372738,
+      "train_positives": 12683,
+      "rows": 42992,
+      "positives": 1744,
+      "prevalence": 0.040565686639374765,
+      "train_start": 86400.0,
+      "train_end": 9289925.0,
+      "evaluation_start": 9894826.0,
+      "evaluation_end": 11043792.0,
+      "feature_columns": {
+        "full": [
+          "amount",
+          "log_amount",
+          "relative_day",
+          "hour_phase",
+          "hour_sin",
+          "hour_cos",
+          "has_identity",
+          "entity_known",
+          "prior_transaction_count",
+          "prior_mean_amount",
+          "prior_std_amount",
+          "amount_to_prior_mean",
+          "amount_zscore",
+          "prior_count_1h",
+          "prior_count_24h",
+          "seconds_since_previous",
+          "history_span_days",
+          "prior_distinct_products",
+          "prior_distinct_email_domains",
+          "prior_distinct_devices",
+          "entity_product_is_new",
+          "entity_email_is_new",
+          "entity_device_is_new",
+          "entity_hour_probability",
+          "prior_global_count",
+          "product_prior_frequency",
+          "email_prior_frequency",
+          "device_prior_frequency",
+          "product_card_prior_frequency",
+          "email_pair_prior_frequency",
+          "product_card_prior_support",
+          "email_pair_prior_support",
+          "email_domains_match",
+          "history_sufficient",
+          "frequent_entity",
+          "usual_amount"
+        ],
+        "without_time": [
+          "amount",
+          "log_amount",
+          "hour_phase",
+          "hour_sin",
+          "hour_cos",
+          "has_identity",
+          "entity_known",
+          "prior_transaction_count",
+          "prior_mean_amount",
+          "prior_std_amount",
+          "amount_to_prior_mean",
+          "amount_zscore",
+          "prior_count_1h",
+          "prior_count_24h",
+          "seconds_since_previous",
+          "history_span_days",
+          "prior_distinct_products",
+          "prior_distinct_email_domains",
+          "prior_distinct_devices",
+          "entity_product_is_new",
+          "entity_email_is_new",
+          "entity_device_is_new",
+          "entity_hour_probability",
+          "product_prior_frequency",
+          "email_prior_frequency",
+          "device_prior_frequency",
+          "product_card_prior_frequency",
+          "email_pair_prior_frequency",
+          "product_card_prior_support",
+          "email_pair_prior_support",
+          "email_domains_match",
+          "history_sufficient",
+          "frequent_entity",
+          "usual_amount"
+        ],
+        "matched": [
+          "amount",
+          "amount_to_prior_mean",
+          "device_prior_frequency",
+          "email_domains_match",
+          "email_pair_prior_frequency",
+          "email_prior_frequency",
+          "entity_device_is_new",
+          "entity_email_is_new",
+          "entity_hour_probability",
+          "entity_known",
+          "entity_product_is_new",
+          "has_identity",
+          "hour_cos",
+          "hour_sin",
+          "log_amount",
+          "prior_count_1h",
+          "prior_count_24h",
+          "prior_distinct_devices",
+          "prior_distinct_email_domains",
+          "prior_distinct_products",
+          "prior_mean_amount",
+          "prior_std_amount",
+          "prior_transaction_count",
+          "product_card_prior_frequency",
+          "product_prior_frequency",
+          "seconds_since_previous"
+        ]
+      },
+      "models": {
+        "raw": {
+          "average_precision": 0.07102715385368058,
+          "roc_auc": 0.6701357858440511,
+          "budgets": {
+            "0.01": {
+              "reviews": 430,
+              "tp": 35,
+              "fp": 395,
+              "fn": 1709,
+              "precision": 0.08139534883720931,
+              "recall": 0.020068807339449542
+            },
+            "0.05": {
+              "reviews": 2150,
+              "tp": 198,
+              "fp": 1952,
+              "fn": 1546,
+              "precision": 0.09209302325581395,
+              "recall": 0.11353211009174312
+            },
+            "0.1": {
+              "reviews": 4300,
+              "tp": 353,
+              "fp": 3947,
+              "fn": 1391,
+              "precision": 0.08209302325581395,
+              "recall": 0.20240825688073394
+            }
+          }
+        },
+        "full_logistic_regression": {
+          "average_precision": 0.17013431195964981,
+          "roc_auc": 0.7777873911929453,
+          "budgets": {
+            "0.01": {
+              "reviews": 430,
+              "tp": 131,
+              "fp": 299,
+              "fn": 1613,
+              "precision": 0.30465116279069765,
+              "recall": 0.07511467889908256
+            },
+            "0.05": {
+              "reviews": 2150,
+              "tp": 510,
+              "fp": 1640,
+              "fn": 1234,
+              "precision": 0.2372093023255814,
+              "recall": 0.29243119266055045
+            },
+            "0.1": {
+              "reviews": 4300,
+              "tp": 774,
+              "fp": 3526,
+              "fn": 970,
+              "precision": 0.18,
+              "recall": 0.44380733944954126
+            }
+          }
+        },
+        "full_gradient_boosting": {
+          "average_precision": 0.20151999011185884,
+          "roc_auc": 0.8152568336924648,
+          "budgets": {
+            "0.01": {
+              "reviews": 430,
+              "tp": 155,
+              "fp": 275,
+              "fn": 1589,
+              "precision": 0.36046511627906974,
+              "recall": 0.08887614678899082
+            },
+            "0.05": {
+              "reviews": 2150,
+              "tp": 554,
+              "fp": 1596,
+              "fn": 1190,
+              "precision": 0.2576744186046512,
+              "recall": 0.3176605504587156
+            },
+            "0.1": {
+              "reviews": 4300,
+              "tp": 856,
+              "fp": 3444,
+              "fn": 888,
+              "precision": 0.19906976744186047,
+              "recall": 0.4908256880733945
+            }
+          }
+        },
+        "without_time_logistic_regression": {
+          "average_precision": 0.16844054006157846,
+          "roc_auc": 0.7809405187729981,
+          "budgets": {
+            "0.01": {
+              "reviews": 430,
+              "tp": 127,
+              "fp": 303,
+              "fn": 1617,
+              "precision": 0.29534883720930233,
+              "recall": 0.07282110091743119
+            },
+            "0.05": {
+              "reviews": 2150,
+              "tp": 495,
+              "fp": 1655,
+              "fn": 1249,
+              "precision": 0.2302325581395349,
+              "recall": 0.2838302752293578
+            },
+            "0.1": {
+              "reviews": 4300,
+              "tp": 772,
+              "fp": 3528,
+              "fn": 972,
+              "precision": 0.17953488372093024,
+              "recall": 0.4426605504587156
+            }
+          }
+        },
+        "without_time_gradient_boosting": {
+          "average_precision": 0.19106439593270655,
+          "roc_auc": 0.8118912062347421,
+          "budgets": {
+            "0.01": {
+              "reviews": 430,
+              "tp": 161,
+              "fp": 269,
+              "fn": 1583,
+              "precision": 0.3744186046511628,
+              "recall": 0.09231651376146789
+            },
+            "0.05": {
+              "reviews": 2150,
+              "tp": 516,
+              "fp": 1634,
+              "fn": 1228,
+              "precision": 0.24,
+              "recall": 0.2958715596330275
+            },
+            "0.1": {
+              "reviews": 4300,
+              "tp": 810,
+              "fp": 3490,
+              "fn": 934,
+              "precision": 0.1883720930232558,
+              "recall": 0.4644495412844037
+            }
+          }
+        },
+        "matched_logistic_regression": {
+          "average_precision": 0.1714057084556643,
+          "roc_auc": 0.7882480874246447,
+          "budgets": {
+            "0.01": {
+              "reviews": 430,
+              "tp": 143,
+              "fp": 287,
+              "fn": 1601,
+              "precision": 0.3325581395348837,
+              "recall": 0.08199541284403669
+            },
+            "0.05": {
+              "reviews": 2150,
+              "tp": 510,
+              "fp": 1640,
+              "fn": 1234,
+              "precision": 0.2372093023255814,
+              "recall": 0.29243119266055045
+            },
+            "0.1": {
+              "reviews": 4300,
+              "tp": 766,
+              "fp": 3534,
+              "fn": 978,
+              "precision": 0.17813953488372092,
+              "recall": 0.43922018348623854
+            }
+          }
+        },
+        "matched_gradient_boosting": {
+          "average_precision": 0.1978257203190113,
+          "roc_auc": 0.7995788703238768,
+          "budgets": {
+            "0.01": {
+              "reviews": 430,
+              "tp": 156,
+              "fp": 274,
+              "fn": 1588,
+              "precision": 0.3627906976744186,
+              "recall": 0.08944954128440367
+            },
+            "0.05": {
+              "reviews": 2150,
+              "tp": 537,
+              "fp": 1613,
+              "fn": 1207,
+              "precision": 0.24976744186046512,
+              "recall": 0.3079128440366973
+            },
+            "0.1": {
+              "reviews": 4300,
+              "tp": 826,
+              "fp": 3474,
+              "fn": 918,
+              "precision": 0.19209302325581395,
+              "recall": 0.4736238532110092
+            }
+          }
+        },
+        "hybrid": {
+          "average_precision": 0.1429714333885443,
+          "roc_auc": 0.781948907948164,
+          "budgets": {
+            "0.01": {
+              "reviews": 430,
+              "tp": 92,
+              "fp": 338,
+              "fn": 1652,
+              "precision": 0.21395348837209302,
+              "recall": 0.052752293577981654
+            },
+            "0.05": {
+              "reviews": 2150,
+              "tp": 445,
+              "fp": 1705,
+              "fn": 1299,
+              "precision": 0.2069767441860465,
+              "recall": 0.2551605504587156
+            },
+            "0.1": {
+              "reviews": 4300,
+              "tp": 721,
+              "fp": 3579,
+              "fn": 1023,
+              "precision": 0.16767441860465115,
+              "recall": 0.41341743119266056
+            }
+          }
+        }
+      },
+      "block_bootstrap": [
+        {
+          "method": "paired_nonoverlapping_time_block_percentile",
+          "hours": 6,
+          "blocks": 54,
+          "resamples": 1000,
+          "rate": 0.05,
+          "assumption": "Observed time blocks are exchangeable; cross-block entity dependence remains.",
+          "scope": "Conditional on fitted models and this evaluation window; not a future-period guarantee.",
+          "status": "ok",
+          "sample_rows_min": 31696,
+          "sample_rows_max": 55405,
+          "comparisons": {
+            "matched_gb_minus_raw": {
+              "observed_tp_gap": 339,
+              "ci_low": 216.5046859745642,
+              "ci_high": 499.6235816310686,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "full_gb_minus_raw": {
+              "observed_tp_gap": 356,
+              "ci_low": 241.74489547190683,
+              "ci_high": 458.95782685000563,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "without_time_gb_minus_full": {
+              "observed_tp_gap": -38,
+              "ci_low": -84.18166637863487,
+              "ci_high": 6.332520099369425,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": false
+            },
+            "matched_lr_minus_raw": {
+              "observed_tp_gap": 312,
+              "ci_low": 177.01153663274997,
+              "ci_high": 437.68271796405327,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            }
+          }
+        },
+        {
+          "method": "paired_nonoverlapping_time_block_percentile",
+          "hours": 24,
+          "blocks": 14,
+          "resamples": 1000,
+          "rate": 0.05,
+          "assumption": "Observed time blocks are exchangeable; cross-block entity dependence remains.",
+          "scope": "Conditional on fitted models and this evaluation window; not a future-period guarantee.",
+          "status": "ok",
+          "sample_rows_min": 35017,
+          "sample_rows_max": 50220,
+          "comparisons": {
+            "matched_gb_minus_raw": {
+              "observed_tp_gap": 339,
+              "ci_low": 225.75793702615155,
+              "ci_high": 514.5655643030127,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "full_gb_minus_raw": {
+              "observed_tp_gap": 356,
+              "ci_low": 261.9543843485033,
+              "ci_high": 450.01543957955664,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "without_time_gb_minus_full": {
+              "observed_tp_gap": -38,
+              "ci_low": -66.10851465647033,
+              "ci_high": 0.0,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": false
+            },
+            "matched_lr_minus_raw": {
+              "observed_tp_gap": 312,
+              "ci_low": 158.5336245124486,
+              "ci_high": 446.39414245182945,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            }
+          }
+        }
+      ],
+      "overlap_raw_matched_gb": {
+        "reviews_each": 2150,
+        "shared_reviews": 308,
+        "raw_only_tp": 135,
+        "supervised_only_tp": 474,
+        "union_reviews": 3992,
+        "union_tp": 672
+      },
+      "label_delay_days": 7,
+      "fold": 2
+    },
+    {
+      "train_rows": 413470,
+      "train_positives": 14540,
+      "rows": 35857,
+      "positives": 1279,
+      "prevalence": 0.035669464818584934,
+      "train_start": 86400.0,
+      "train_end": 10439022.0,
+      "evaluation_start": 11043833.0,
+      "evaluation_end": 12192842.0,
+      "feature_columns": {
+        "full": [
+          "amount",
+          "log_amount",
+          "relative_day",
+          "hour_phase",
+          "hour_sin",
+          "hour_cos",
+          "has_identity",
+          "entity_known",
+          "prior_transaction_count",
+          "prior_mean_amount",
+          "prior_std_amount",
+          "amount_to_prior_mean",
+          "amount_zscore",
+          "prior_count_1h",
+          "prior_count_24h",
+          "seconds_since_previous",
+          "history_span_days",
+          "prior_distinct_products",
+          "prior_distinct_email_domains",
+          "prior_distinct_devices",
+          "entity_product_is_new",
+          "entity_email_is_new",
+          "entity_device_is_new",
+          "entity_hour_probability",
+          "prior_global_count",
+          "product_prior_frequency",
+          "email_prior_frequency",
+          "device_prior_frequency",
+          "product_card_prior_frequency",
+          "email_pair_prior_frequency",
+          "product_card_prior_support",
+          "email_pair_prior_support",
+          "email_domains_match",
+          "history_sufficient",
+          "frequent_entity",
+          "usual_amount"
+        ],
+        "without_time": [
+          "amount",
+          "log_amount",
+          "hour_phase",
+          "hour_sin",
+          "hour_cos",
+          "has_identity",
+          "entity_known",
+          "prior_transaction_count",
+          "prior_mean_amount",
+          "prior_std_amount",
+          "amount_to_prior_mean",
+          "amount_zscore",
+          "prior_count_1h",
+          "prior_count_24h",
+          "seconds_since_previous",
+          "history_span_days",
+          "prior_distinct_products",
+          "prior_distinct_email_domains",
+          "prior_distinct_devices",
+          "entity_product_is_new",
+          "entity_email_is_new",
+          "entity_device_is_new",
+          "entity_hour_probability",
+          "product_prior_frequency",
+          "email_prior_frequency",
+          "device_prior_frequency",
+          "product_card_prior_frequency",
+          "email_pair_prior_frequency",
+          "product_card_prior_support",
+          "email_pair_prior_support",
+          "email_domains_match",
+          "history_sufficient",
+          "frequent_entity",
+          "usual_amount"
+        ],
+        "matched": [
+          "amount",
+          "amount_to_prior_mean",
+          "device_prior_frequency",
+          "email_domains_match",
+          "email_pair_prior_frequency",
+          "email_prior_frequency",
+          "entity_device_is_new",
+          "entity_email_is_new",
+          "entity_hour_probability",
+          "entity_known",
+          "entity_product_is_new",
+          "has_identity",
+          "hour_cos",
+          "hour_sin",
+          "log_amount",
+          "prior_count_1h",
+          "prior_count_24h",
+          "prior_distinct_devices",
+          "prior_distinct_email_domains",
+          "prior_distinct_products",
+          "prior_mean_amount",
+          "prior_std_amount",
+          "prior_transaction_count",
+          "product_card_prior_frequency",
+          "product_prior_frequency",
+          "seconds_since_previous"
+        ]
+      },
+      "models": {
+        "raw": {
+          "average_precision": 0.0641470045625663,
+          "roc_auc": 0.6707656474708957,
+          "budgets": {
+            "0.01": {
+              "reviews": 359,
+              "tp": 34,
+              "fp": 325,
+              "fn": 1245,
+              "precision": 0.0947075208913649,
+              "recall": 0.026583268178264268
+            },
+            "0.05": {
+              "reviews": 1793,
+              "tp": 132,
+              "fp": 1661,
+              "fn": 1147,
+              "precision": 0.0736196319018405,
+              "recall": 0.10320562939796717
+            },
+            "0.1": {
+              "reviews": 3586,
+              "tp": 288,
+              "fp": 3298,
+              "fn": 991,
+              "precision": 0.08031232571109871,
+              "recall": 0.2251759186864738
+            }
+          }
+        },
+        "full_logistic_regression": {
+          "average_precision": 0.13716726490389552,
+          "roc_auc": 0.7489083727757226,
+          "budgets": {
+            "0.01": {
+              "reviews": 359,
+              "tp": 113,
+              "fp": 246,
+              "fn": 1166,
+              "precision": 0.3147632311977716,
+              "recall": 0.08835027365129007
+            },
+            "0.05": {
+              "reviews": 1793,
+              "tp": 335,
+              "fp": 1458,
+              "fn": 944,
+              "precision": 0.1868377021751255,
+              "recall": 0.2619233776387803
+            },
+            "0.1": {
+              "reviews": 3586,
+              "tp": 478,
+              "fp": 3108,
+              "fn": 801,
+              "precision": 0.13329615170105968,
+              "recall": 0.3737294761532447
+            }
+          }
+        },
+        "full_gradient_boosting": {
+          "average_precision": 0.19974621398785394,
+          "roc_auc": 0.8040375430675797,
+          "budgets": {
+            "0.01": {
+              "reviews": 359,
+              "tp": 145,
+              "fp": 214,
+              "fn": 1134,
+              "precision": 0.403899721448468,
+              "recall": 0.11336982017200939
+            },
+            "0.05": {
+              "reviews": 1793,
+              "tp": 435,
+              "fp": 1358,
+              "fn": 844,
+              "precision": 0.2426101505856107,
+              "recall": 0.34010946051602814
+            },
+            "0.1": {
+              "reviews": 3586,
+              "tp": 609,
+              "fp": 2977,
+              "fn": 670,
+              "precision": 0.1698271054099275,
+              "recall": 0.4761532447224394
+            }
+          }
+        },
+        "without_time_logistic_regression": {
+          "average_precision": 0.13313902529299923,
+          "roc_auc": 0.7490977667922013,
+          "budgets": {
+            "0.01": {
+              "reviews": 359,
+              "tp": 102,
+              "fp": 257,
+              "fn": 1177,
+              "precision": 0.2841225626740947,
+              "recall": 0.0797498045347928
+            },
+            "0.05": {
+              "reviews": 1793,
+              "tp": 328,
+              "fp": 1465,
+              "fn": 951,
+              "precision": 0.18293363078639152,
+              "recall": 0.25645035183737297
+            },
+            "0.1": {
+              "reviews": 3586,
+              "tp": 481,
+              "fp": 3105,
+              "fn": 798,
+              "precision": 0.13413273842721696,
+              "recall": 0.37607505863956214
+            }
+          }
+        },
+        "without_time_gradient_boosting": {
+          "average_precision": 0.18330351572450396,
+          "roc_auc": 0.8013102217461142,
+          "budgets": {
+            "0.01": {
+              "reviews": 359,
+              "tp": 135,
+              "fp": 224,
+              "fn": 1144,
+              "precision": 0.37604456824512533,
+              "recall": 0.1055512118842846
+            },
+            "0.05": {
+              "reviews": 1793,
+              "tp": 399,
+              "fp": 1394,
+              "fn": 880,
+              "precision": 0.22253206915783602,
+              "recall": 0.31196247068021893
+            },
+            "0.1": {
+              "reviews": 3586,
+              "tp": 586,
+              "fp": 3000,
+              "fn": 693,
+              "precision": 0.1634132738427217,
+              "recall": 0.4581704456606724
+            }
+          }
+        },
+        "matched_logistic_regression": {
+          "average_precision": 0.13445981224573747,
+          "roc_auc": 0.7530708353971991,
+          "budgets": {
+            "0.01": {
+              "reviews": 359,
+              "tp": 109,
+              "fp": 250,
+              "fn": 1170,
+              "precision": 0.30362116991643456,
+              "recall": 0.08522283033620015
+            },
+            "0.05": {
+              "reviews": 1793,
+              "tp": 337,
+              "fp": 1456,
+              "fn": 942,
+              "precision": 0.1879531511433352,
+              "recall": 0.26348709929632524
+            },
+            "0.1": {
+              "reviews": 3586,
+              "tp": 468,
+              "fp": 3118,
+              "fn": 811,
+              "precision": 0.1305075292805354,
+              "recall": 0.36591086786551996
+            }
+          }
+        },
+        "matched_gradient_boosting": {
+          "average_precision": 0.17940077665644658,
+          "roc_auc": 0.8033636635097832,
+          "budgets": {
+            "0.01": {
+              "reviews": 359,
+              "tp": 139,
+              "fp": 220,
+              "fn": 1140,
+              "precision": 0.3871866295264624,
+              "recall": 0.10867865519937452
+            },
+            "0.05": {
+              "reviews": 1793,
+              "tp": 381,
+              "fp": 1412,
+              "fn": 898,
+              "precision": 0.21249302844394868,
+              "recall": 0.2978889757623143
+            },
+            "0.1": {
+              "reviews": 3586,
+              "tp": 583,
+              "fp": 3003,
+              "fn": 696,
+              "precision": 0.16257668711656442,
+              "recall": 0.45582486317435494
+            }
+          }
+        },
+        "hybrid": {
+          "average_precision": 0.13027594003767892,
+          "roc_auc": 0.7788401117895017,
+          "budgets": {
+            "0.01": {
+              "reviews": 359,
+              "tp": 79,
+              "fp": 280,
+              "fn": 1200,
+              "precision": 0.2200557103064067,
+              "recall": 0.0617670054730258
+            },
+            "0.05": {
+              "reviews": 1793,
+              "tp": 301,
+              "fp": 1492,
+              "fn": 978,
+              "precision": 0.16787506971556052,
+              "recall": 0.23534010946051603
+            },
+            "0.1": {
+              "reviews": 3586,
+              "tp": 518,
+              "fp": 3068,
+              "fn": 761,
+              "precision": 0.14445064138315672,
+              "recall": 0.40500390930414387
+            }
+          }
+        }
+      },
+      "block_bootstrap": [
+        {
+          "method": "paired_nonoverlapping_time_block_percentile",
+          "hours": 6,
+          "blocks": 54,
+          "resamples": 1000,
+          "rate": 0.05,
+          "assumption": "Observed time blocks are exchangeable; cross-block entity dependence remains.",
+          "scope": "Conditional on fitted models and this evaluation window; not a future-period guarantee.",
+          "status": "ok",
+          "sample_rows_min": 26989,
+          "sample_rows_max": 43627,
+          "comparisons": {
+            "matched_gb_minus_raw": {
+              "observed_tp_gap": 249,
+              "ci_low": 181.2972940940726,
+              "ci_high": 341.59349424355247,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "full_gb_minus_raw": {
+              "observed_tp_gap": 303,
+              "ci_low": 225.10011995163322,
+              "ci_high": 391.36281930086335,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "without_time_gb_minus_full": {
+              "observed_tp_gap": -36,
+              "ci_low": -77.65503520491099,
+              "ci_high": -1.8688805616784838,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "matched_lr_minus_raw": {
+              "observed_tp_gap": 205,
+              "ci_low": 120.95135703648735,
+              "ci_high": 302.61606817563376,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            }
+          }
+        },
+        {
+          "method": "paired_nonoverlapping_time_block_percentile",
+          "hours": 24,
+          "blocks": 14,
+          "resamples": 1000,
+          "rate": 0.05,
+          "assumption": "Observed time blocks are exchangeable; cross-block entity dependence remains.",
+          "scope": "Conditional on fitted models and this evaluation window; not a future-period guarantee.",
+          "status": "ok",
+          "sample_rows_min": 30213,
+          "sample_rows_max": 40126,
+          "comparisons": {
+            "matched_gb_minus_raw": {
+              "observed_tp_gap": 249,
+              "ci_low": 183.8629543321097,
+              "ci_high": 314.3381626255708,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "full_gb_minus_raw": {
+              "observed_tp_gap": 303,
+              "ci_low": 230.26719673047296,
+              "ci_high": 371.1437420175323,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            },
+            "without_time_gb_minus_full": {
+              "observed_tp_gap": -36,
+              "ci_low": -85.02739534141674,
+              "ci_high": 2.9036032870561646,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": false
+            },
+            "matched_lr_minus_raw": {
+              "observed_tp_gap": 205,
+              "ci_low": 131.86908119463078,
+              "ci_high": 280.8098904719917,
+              "units": "TP difference per original evaluation-window row count",
+              "excludes_zero": true
+            }
+          }
+        }
+      ],
+      "overlap_raw_matched_gb": {
+        "reviews_each": 1793,
+        "shared_reviews": 354,
+        "raw_only_tp": 84,
+        "supervised_only_tp": 333,
+        "union_reviews": 3232,
+        "union_tp": 465
+      },
+      "label_delay_days": 7,
+      "fold": 3
+    }
+  ]
+}

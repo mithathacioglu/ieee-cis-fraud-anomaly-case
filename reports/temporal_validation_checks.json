@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "checks": 1114,
+  "fold_evaluations": 6,
+  "unique_evaluation_transactions": 118108,
+  "totals_at_primary_budget": {
+    "0": {
+      "reviews": 5906,
+      "tp": {
+        "raw": 546,
+        "full_logistic_regression": 1244,
+        "full_gradient_boosting": 1419,
+        "without_time_logistic_regression": 1227,
+        "without_time_gradient_boosting": 1511,
+        "matched_logistic_regression": 1231,
+        "matched_gradient_boosting": 1358,
+        "hybrid": 1043
+      }
+    },
+    "7": {
+      "reviews": 5906,
+      "tp": {
+        "raw": 540,
+        "full_logistic_regression": 1228,
+        "full_gradient_boosting": 1444,
+        "without_time_logistic_regression": 1216,
+        "without_time_gradient_boosting": 1325,
+        "matched_logistic_regression": 1230,
+        "matched_gradient_boosting": 1325,
+        "hybrid": 1117
+      }
+    }
+  },
+  "prediction_sha256": {
+    "delay_0_fold_1_predictions.parquet": "d231a380dadf0c8c902753daf8bbd7aa8d2f99de8a10bc82ff52589e78fc9a19",
+    "delay_0_fold_2_predictions.parquet": "46bcef097efb45641ce7c56b39fc45bf5449092bc76e7567b190ab4c53622d38",
+    "delay_0_fold_3_predictions.parquet": "4ce598c5303c34d148b43f102889fd36001ff9c80ceed11f9530ebc4ffbf13b1",
+    "delay_7_fold_1_predictions.parquet": "b0d1031829647548e93e7ab6fc97a64626881ed1f047fff747575f73fde4f9f4",
+    "delay_7_fold_2_predictions.parquet": "1d8c881ce2489eda005ed9c006f1e9bcea1e259bc9d174408757fcf326a779bb",
+    "delay_7_fold_3_predictions.parquet": "d92f80b8feedb9100a0c4e8d528e59cb285c0f699f5c2ae458b2acdc3aac6d5e"
+  },
+  "scope": "Saved prediction replay: counts, budgets, AP/AUC, confusion counts, overlap, windows, source snapshots. Bootstrap distributions and model fitting are not rerun by this verifier."
+}

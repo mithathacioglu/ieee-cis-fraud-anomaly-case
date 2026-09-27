@@ -1,0 +1,1861 @@
+{
+  "unit_and_integration_tests_passed": 261,
+  "test_environment": "Windows / Python 3.14.6; dependency closure pinned in requirements.lock",
+  "test_warning": "Starlette 1.7.0 deprecates its httpx TestClient backend; tests pass with pinned httpx 0.28.1.",
+  "clean_install": {
+    "python": "3.14.6",
+    "isolated_venv": true,
+    "system_site_packages": false,
+    "locked_packages_verified": 69,
+    "dependency_check": "pip check passed",
+    "data_and_model_downloads_repeated": false,
+    "commands": [
+      "python -m venv tmp/clean_delivery_venv",
+      "python -m pip install -r requirements.lock",
+      "python -m pip install -e . --no-deps",
+      "python -m pip check",
+      "python -m pytest -q -p no:cacheprovider"
+    ]
+  },
+  "demo_html_check": {
+    "three_cards": true,
+    "anchor_links_valid": true,
+    "external_assets": false,
+    "scripts_or_frames": false,
+    "utf8_replacement_characters": false,
+    "doctype_and_charset": true,
+    "visual_browser_check": false,
+    "reason": "Görsel tarayıcı kontrolü çalıştırılmadı. Kontrol edilen şey işaretlemenin yapısı: üç kart, kendi içinde çözülen bağlantılar, uzak varlık ve script yokluğu, bozulmamış UTF-8.",
+    "checked_file": "artifacts/demo/full/index.html",
+    "html_sha256": "3af329926c57aab25fcfc04a36208d583817a99e0f5c02a1d681cceb7c51f2b9",
+    "checked_utc": "2026-09-27T03:41:11.584708+00:00",
+    "source_sha256": "2b8e1b82c5821cd21b3d682eaa2f34ae3f1eefd79cd551d6ab6f5464fab39f58"
+  },
+  "scenario_demo": {
+    "scenarios_verified": 48,
+    "raw_layers_unchanged_by_context": true,
+    "context_contributions_sum_to_adjusted_score": true,
+    "prior_trust_reduces_stable_score": true,
+    "same_time_trust_ignored": true,
+    "burst_guard_blocks_trust_discount": true,
+    "weekend_schedule_required": true,
+    "existing_llm_examples_reused": 3,
+    "fraud_labels_read": false,
+    "evaluation_sha256": "26202d7eea72964be684915482fb96dc1d2048b51870cb14f87dca485e129e5d",
+    "source_sha256": {
+      "src/fraud_case/__init__.py": "028a8bc4b7ebea9b017b5f94ef0ea2da89c163b47148e4e11db8881b7ca5c36c",
+      "src/fraud_case/agents.py": "2b3782a8a535c04b16f4abcb3a7828a6e4eb81581d8df426a7eace6a97121464",
+      "src/fraud_case/aggregation.py": "224730b1c8ebb42917dd1e53f33f1a786ea5841f07273779d3b7a021b166ef2a",
+      "src/fraud_case/anomaly.py": "1e7e6b23d0da51390aa56e610fd60bafa972323779b7ae78d35ef4e9d5869e1e",
+      "src/fraud_case/api.py": "06abe774c01ba484f4b5b0c3e12ba9a69c0e035f2a33680c63d1cd0353d80258",
+      "src/fraud_case/build_features.py": "fde3e6ef57532b71a3712533754ef00596f73fee65daa1909642b4e5e0345705",
+      "src/fraud_case/build_rag.py": "857452ab826ff88c2d8bd472409afe1bd26c9825279b0e063bcaf2d584396ba2",
+      "src/fraud_case/build_scores.py": "f989f29d392009481308759481f6691a3cdbd0744b293506114902acfa796ced",
+      "src/fraud_case/container.py": "c15946cf4e4f15d06e987089818c25f056c3874537e14eadbeb65c0a75226025",
+      "src/fraud_case/context.py": "6761b76db2274593cc812fff7f0555dffa8357616e70e366c6cdc612990ac5c5",
+      "src/fraud_case/data.py": "de0ef7921085ded3ea382f7d82cbc2910c36e1dd2d4d0ed30f79310d6d45524e",
+      "src/fraud_case/evaluate_context.py": "227eb7ea53220c8d0980a08237ec3343d8aeeeeb14fb8eb24cf8c412398541b5",
+      "src/fraud_case/evaluate_rules.py": "54e2cdd9763eae2cc55d13dfd217b09e3897676e2ec08ba740bc92e951797976",
+      "src/fraud_case/evaluation.py": "0dd9deb8d682af3e2e7e470e3392f74f8a11f48f5392568818c3c0b5c5a143fb",
+      "src/fraud_case/explanations.py": "c658de9f73966319361e0513df2b1f0149910943e981c8ba7c088211f974405a",
+      "src/fraud_case/features.py": "1a4abda636e5362efbda0ac2670c814214c687a45dd1ddeab25ba572ed6138d8",
+      "src/fraud_case/product_context.py": "5e7df59d83d7d2a35a3cbff4ef662a444415b669f76cd704ec942f96da419581",
+      "src/fraud_case/profile.py": "f52672287e0ce0e3234a4393bfa33e6c0d31654dac91740b85600748b20b9568",
+      "src/fraud_case/profiling.py": "7c53db2b9f9ac8862e45e9e753562598a06f833fde5e141d807ad0a94cb953a9",
+      "src/fraud_case/rag.py": "8efe6b10adb0d460d1f2175e139cb4dddf5b24d697e87bfd1fec9138fed0aad5",
+      "src/fraud_case/rules.py": "1c7521677d89ed9576a5c45c5ee1b25cbd3d6b19511ebf6db6eee9886bedf3aa",
+      "src/fraud_case/schema.py": "606627b37ab6cd3a720aabad25530d7343b2695d8472e61d938d9fb17b3f0bf7",
+      "src/fraud_case/service.py": "19899c200854cee2e6c84198f66d0a299fc9b97b26d25309fa93dffcf147d6e0"
+    },
+    "html_sha256": "791d99326cc51a76887adf7aef4d8daeb5f1813efd15c9c0abad32b170fec61a"
+  },
+  "local_model_runtime": {
+    "ollama_version": "v0.34.4",
+    "archive_sha256": "535193f38f3344e5b08f5d1c171c31ce11aa17f0124ff69ae26d8ec7fe06fa62",
+    "models": {
+      "models": [
+        {
+          "name": "qwen3:4b",
+          "model": "qwen3:4b",
+          "modified_at": "2026-09-25T18:49:06.2313598+03:00",
+          "size": 2497293931,
+          "digest": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen3",
+            "families": [
+              "qwen3"
+            ],
+            "parameter_size": "4.0B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 262144,
+            "embedding_length": 2560
+          },
+          "capabilities": [
+            "completion",
+            "tools",
+            "thinking"
+          ]
+        },
+        {
+          "name": "embeddinggemma:300m",
+          "model": "embeddinggemma:300m",
+          "modified_at": "2026-09-25T18:49:05.6096195+03:00",
+          "size": 621875917,
+          "digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+          "details": {
+            "parent_model": "embeddinggemma:300m-bf16",
+            "format": "gguf",
+            "family": "gemma3",
+            "families": [
+              "gemma3"
+            ],
+            "parameter_size": "307.58M",
+            "quantization_level": "BF16",
+            "context_length": 2048,
+            "embedding_length": 768
+          },
+          "capabilities": [
+            "embedding"
+          ]
+        }
+      ]
+    }
+  },
+  "rag": {
+    "model": "qwen3:4b",
+    "generation_digest": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+    "embedding_metadata": {
+      "embedding_model": "embeddinggemma:300m",
+      "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+      "documents_sha256": "0f969849d7003f924e8943351b38a30f708830ec39ffea3af00a6def94ac74ef",
+      "dimension": 768,
+      "retrieval": "exact cosine on unit-normalized dense embeddings"
+    },
+    "hit_at_k": 1.0,
+    "top_k": 4,
+    "evaluation_scope": "Small hand-authored development smoke suite, not an independent RAG benchmark."
+  },
+  "http_status": {
+    "/score": 200,
+    "/rules/evaluate": 200,
+    "/explain": 200,
+    "/rag/query": 200
+  },
+  "final_evaluation": {
+    "rows": 118108,
+    "threshold_from_train": 0.8516781251058354,
+    "raw": {
+      "rows": 118108,
+      "positives": 4064,
+      "alerts": 4681,
+      "tp": 487,
+      "fp": 4194,
+      "fn": 3577,
+      "tn": 109850,
+      "precision": 0.10403759880367443,
+      "recall": 0.11983267716535433,
+      "false_positive_rate": 0.03677527971660061,
+      "average_precision": 0.06717235483543983,
+      "roc_auc": 0.6643797189619036
+    },
+    "context": {
+      "rows": 118108,
+      "positives": 4064,
+      "alerts": 4517,
+      "tp": 459,
+      "fp": 4058,
+      "fn": 3605,
+      "tn": 109986,
+      "precision": 0.10161611689174231,
+      "recall": 0.11294291338582677,
+      "false_positive_rate": 0.03558275753218056,
+      "average_precision": 0.06672602142215472,
+      "roc_auc": 0.6640689922621383
+    },
+    "same_review_budget": {
+      "raw": {
+        "rows": 118108,
+        "positives": 4064,
+        "alerts": 4681,
+        "tp": 487,
+        "fp": 4194,
+        "fn": 3577,
+        "tn": 109850,
+        "precision": 0.10403759880367443,
+        "recall": 0.11983267716535433,
+        "false_positive_rate": 0.03677527971660061,
+        "average_precision": 0.06717235483543983,
+        "roc_auc": 0.6643797189619036
+      },
+      "context": {
+        "rows": 118108,
+        "positives": 4064,
+        "alerts": 4681,
+        "tp": 475,
+        "fp": 4206,
+        "fn": 3589,
+        "tn": 109838,
+        "precision": 0.10147404400769067,
+        "recall": 0.11687992125984252,
+        "false_positive_rate": 0.03688050226228473,
+        "average_precision": 0.06672602142215472,
+        "roc_auc": 0.6640689922621383
+      }
+    },
+    "rules": {
+      "rows": 118108,
+      "reviews": 8966,
+      "tp": 581,
+      "fp": 8385,
+      "fn": 3483,
+      "tn": 105659,
+      "precision": 0.06480035690385902,
+      "recall": 0.14296259842519685,
+      "false_positive_rate": 0.0735242537967802
+    },
+    "context_at_rule_threshold_0_85": {
+      "rows": 118108,
+      "reviews": 4613,
+      "tp": 468,
+      "fp": 4145,
+      "fn": 3596,
+      "tn": 109899,
+      "precision": 0.10145241708215912,
+      "recall": 0.11515748031496063,
+      "false_positive_rate": 0.03634562098839045
+    },
+    "frozen_before_labels": true,
+    "parameter_changes_after_result": false,
+    "history_policy": "Chronological unlabelled feature replay; scoring model and references remain train-fitted."
+  },
+  "baseline_post_final_scoring_unchanged": true,
+  "post_final_changes": [
+    "config/rag.json",
+    "src/fraud_case/__init__.py",
+    "src/fraud_case/agents.py",
+    "src/fraud_case/aggregation.py",
+    "src/fraud_case/anomaly.py",
+    "src/fraud_case/api.py",
+    "src/fraud_case/build_features.py",
+    "src/fraud_case/build_rag.py",
+    "src/fraud_case/build_scores.py",
+    "src/fraud_case/container.py",
+    "src/fraud_case/context.py",
+    "src/fraud_case/data.py",
+    "src/fraud_case/evaluate_context.py",
+    "src/fraud_case/evaluate_rules.py",
+    "src/fraud_case/evaluation.py",
+    "src/fraud_case/features.py",
+    "src/fraud_case/profile.py",
+    "src/fraud_case/profiling.py",
+    "src/fraud_case/rag.py",
+    "src/fraud_case/rules.py",
+    "src/fraud_case/schema.py",
+    "src/fraud_case/service.py"
+  ],
+  "post_final_change_scope": "Source files were reformatted and their comments rewritten after the final test, so byte hashes differ from the frozen manifest. What actually pins behaviour is the derived output side: scores.parquet, context_scores.parquet and rule_decisions.parquet still match the frozen manifest byte for byte, so no source change was propagated into a different result. Optional product_risk uses train labels and development-only metrics. RAG selects sources; engine facts and full source quotations replace generated claims. Three-case demo checks API consistency.",
+  "replay_coverage": {
+    "default_requests": 64,
+    "covers": "Scoring, aggregation and context from STORED features with the SAVED model, field by field.",
+    "does_not_cover": "Feature generation is not re-derived by this replay, so it cannot by itself detect a change in how history features are built. That layer is checked separately by scripts/verify_features.py, which recomputes counts, means and velocity windows with a different method, and by the frozen parquet hashes above.",
+    "not_possible_here": "Re-deriving features from the raw IEEE-CIS CSV files is outside this package, which deliberately excludes the raw data.",
+    "feature_layer_status": "passed",
+    "feature_layer_checks": [
+      "IDs and split alignment",
+      "feature contract excludes target",
+      "strictly earlier global count including ties",
+      "strictly earlier entity count and mean",
+      "missing entities have unavailable history",
+      "1h and 24h velocity including tied timestamps"
+    ]
+  },
+  "rag_contract": {
+    "mode": "source_selection_with_engine_facts",
+    "current_source_sha256": {
+      "config/rag.json": "5547de95123e522a4f5ffddbfdc89b53272708c98b5511b6cc1a3cf8de950aef",
+      "src/fraud_case/__init__.py": "028a8bc4b7ebea9b017b5f94ef0ea2da89c163b47148e4e11db8881b7ca5c36c",
+      "src/fraud_case/agents.py": "2b3782a8a535c04b16f4abcb3a7828a6e4eb81581d8df426a7eace6a97121464",
+      "src/fraud_case/aggregation.py": "224730b1c8ebb42917dd1e53f33f1a786ea5841f07273779d3b7a021b166ef2a",
+      "src/fraud_case/anomaly.py": "1e7e6b23d0da51390aa56e610fd60bafa972323779b7ae78d35ef4e9d5869e1e",
+      "src/fraud_case/api.py": "06abe774c01ba484f4b5b0c3e12ba9a69c0e035f2a33680c63d1cd0353d80258",
+      "src/fraud_case/build_features.py": "fde3e6ef57532b71a3712533754ef00596f73fee65daa1909642b4e5e0345705",
+      "src/fraud_case/build_rag.py": "857452ab826ff88c2d8bd472409afe1bd26c9825279b0e063bcaf2d584396ba2",
+      "src/fraud_case/build_scores.py": "f989f29d392009481308759481f6691a3cdbd0744b293506114902acfa796ced",
+      "src/fraud_case/container.py": "c15946cf4e4f15d06e987089818c25f056c3874537e14eadbeb65c0a75226025",
+      "src/fraud_case/context.py": "6761b76db2274593cc812fff7f0555dffa8357616e70e366c6cdc612990ac5c5",
+      "src/fraud_case/data.py": "de0ef7921085ded3ea382f7d82cbc2910c36e1dd2d4d0ed30f79310d6d45524e",
+      "src/fraud_case/evaluate_context.py": "227eb7ea53220c8d0980a08237ec3343d8aeeeeb14fb8eb24cf8c412398541b5",
+      "src/fraud_case/evaluate_rules.py": "54e2cdd9763eae2cc55d13dfd217b09e3897676e2ec08ba740bc92e951797976",
+      "src/fraud_case/evaluation.py": "0dd9deb8d682af3e2e7e470e3392f74f8a11f48f5392568818c3c0b5c5a143fb",
+      "src/fraud_case/explanations.py": "c658de9f73966319361e0513df2b1f0149910943e981c8ba7c088211f974405a",
+      "src/fraud_case/features.py": "1a4abda636e5362efbda0ac2670c814214c687a45dd1ddeab25ba572ed6138d8",
+      "src/fraud_case/product_context.py": "5e7df59d83d7d2a35a3cbff4ef662a444415b669f76cd704ec942f96da419581",
+      "src/fraud_case/profile.py": "f52672287e0ce0e3234a4393bfa33e6c0d31654dac91740b85600748b20b9568",
+      "src/fraud_case/profiling.py": "7c53db2b9f9ac8862e45e9e753562598a06f833fde5e141d807ad0a94cb953a9",
+      "src/fraud_case/rag.py": "8efe6b10adb0d460d1f2175e139cb4dddf5b24d697e87bfd1fec9138fed0aad5",
+      "src/fraud_case/rules.py": "1c7521677d89ed9576a5c45c5ee1b25cbd3d6b19511ebf6db6eee9886bedf3aa",
+      "src/fraud_case/schema.py": "606627b37ab6cd3a720aabad25530d7343b2695d8472e61d938d9fb17b3f0bf7",
+      "src/fraud_case/service.py": "19899c200854cee2e6c84198f66d0a299fc9b97b26d25309fa93dffcf147d6e0"
+    },
+    "limitation": "Selection relevance and source correctness are not guaranteed; free-form model claims are not accepted."
+  },
+  "demo": {
+    "created_utc": "2026-09-27T03:41:06.775534+00:00",
+    "llm_enabled": true,
+    "labels_read": false,
+    "cases": [
+      {
+        "transaction_id": 3341325,
+        "title": "Alışıldık faaliyet",
+        "decision": "monitor",
+        "winning_rule": "R10_familiar_activity"
+      },
+      {
+        "transaction_id": 3341328,
+        "title": "İnceleme gerektiren skor",
+        "decision": "review",
+        "winning_rule": "R09_high_adjusted_score"
+      },
+      {
+        "transaction_id": 3400481,
+        "title": "İki kural, tek karar",
+        "decision": "review",
+        "winning_rule": "R03_daily_velocity"
+      }
+    ]
+  },
+  "supervised_baseline": {
+    "scope": "Later validation half. Train labels only; the held-out test split was not reopened.",
+    "rows": 59054,
+    "positives": 2061,
+    "features_used": 36,
+    "features_dropped": [
+      "calendar_available",
+      "day_of_week",
+      "hour",
+      "is_business_hours",
+      "is_weekend"
+    ],
+    "feature_columns": [
+      "amount",
+      "log_amount",
+      "relative_day",
+      "hour_phase",
+      "hour_sin",
+      "hour_cos",
+      "has_identity",
+      "entity_known",
+      "prior_transaction_count",
+      "prior_mean_amount",
+      "prior_std_amount",
+      "amount_to_prior_mean",
+      "amount_zscore",
+      "prior_count_1h",
+      "prior_count_24h",
+      "seconds_since_previous",
+      "history_span_days",
+      "prior_distinct_products",
+      "prior_distinct_email_domains",
+      "prior_distinct_devices",
+      "entity_product_is_new",
+      "entity_email_is_new",
+      "entity_device_is_new",
+      "entity_hour_probability",
+      "prior_global_count",
+      "product_prior_frequency",
+      "email_prior_frequency",
+      "device_prior_frequency",
+      "product_card_prior_frequency",
+      "email_pair_prior_frequency",
+      "product_card_prior_support",
+      "email_pair_prior_support",
+      "email_domains_match",
+      "history_sufficient",
+      "frequent_entity",
+      "usual_amount"
+    ],
+    "unsupervised_inputs": 26,
+    "isolation_forest_inputs": 21,
+    "input_parity": "Not matched: the supervised models see every usable feature, the anomaly layers a subset.",
+    "class_weight": "balanced for both supervised models",
+    "models": {
+      "unsupervised_raw": {
+        "average_precision": 0.0634030972088256,
+        "roc_auc": 0.6730754101563908,
+        "budgets": {
+          "0.01": {
+            "reviews": 591,
+            "tp": 46
+          },
+          "0.05": {
+            "reviews": 2953,
+            "tp": 230
+          },
+          "0.1": {
+            "reviews": 5906,
+            "tp": 457
+          }
+        }
+      },
+      "logistic_regression": {
+        "average_precision": 0.14966768754464788,
+        "roc_auc": 0.7488465113053501,
+        "budgets": {
+          "0.01": {
+            "reviews": 591,
+            "tp": 205
+          },
+          "0.05": {
+            "reviews": 2953,
+            "tp": 597
+          },
+          "0.1": {
+            "reviews": 5906,
+            "tp": 849
+          }
+        }
+      },
+      "gradient_boosting": {
+        "average_precision": 0.16395809919265858,
+        "roc_auc": 0.7963884632426704,
+        "budgets": {
+          "0.01": {
+            "reviews": 591,
+            "tp": 191
+          },
+          "0.05": {
+            "reviews": 2953,
+            "tp": 628
+          },
+          "0.1": {
+            "reviews": 5906,
+            "tp": 943
+          }
+        }
+      }
+    },
+    "bootstrap_gap_at_5pct": {
+      "logistic_regression": {
+        "observed_gap": 367,
+        "ci_low": 314.925,
+        "ci_high": 411.0,
+        "resamples": 400,
+        "excludes_zero": true
+      },
+      "gradient_boosting": {
+        "observed_gap": 398,
+        "ci_low": 347.975,
+        "ci_high": 444.025,
+        "resamples": 400,
+        "excludes_zero": true
+      }
+    },
+    "bootstrap_scope": "Paired IID row resampling, conditional on fitted models and this window; time/entity dependence and refitting uncertainty are not represented.",
+    "sensitivity_without_time_proxy": {
+      "removed": [
+        "prior_global_count",
+        "relative_day"
+      ],
+      "models": {
+        "logistic_regression": {
+          "average_precision": 0.14367603707179183,
+          "roc_auc": 0.7572207191477067,
+          "budgets": {
+            "0.01": {
+              "reviews": 591,
+              "tp": 172
+            },
+            "0.05": {
+              "reviews": 2953,
+              "tp": 598
+            },
+            "0.1": {
+              "reviews": 5906,
+              "tp": 845
+            }
+          }
+        },
+        "gradient_boosting": {
+          "average_precision": 0.16633157504614987,
+          "roc_auc": 0.7861741628969765,
+          "budgets": {
+            "0.01": {
+              "reviews": 591,
+              "tp": 216
+            },
+            "0.05": {
+              "reviews": 2953,
+              "tp": 593
+            },
+            "0.1": {
+              "reviews": 5906,
+              "tp": 919
+            }
+          }
+        }
+      }
+    },
+    "interpretation": "Inputs are not matched. The gap cannot be attributed solely to labels. Supervised training assumes labels are available; actual label availability is unknown. Neither future performance nor incremental hybrid benefit is established here."
+  },
+  "context_selection_criterion": {
+    "purpose": "Post-hoc comparison of two selection criteria on the same calibration segment.",
+    "not_a_preregistration": "The capacity-first criterion was written after seeing the original result. This file compares criteria; it is not independent evidence for the criterion.",
+    "calibration_rows": 59054,
+    "frozen_threshold": 0.8516781251058354,
+    "equal_capacity_reviews": 2436,
+    "baseline_at_threshold": {
+      "rows": 59054,
+      "positives": 2550,
+      "alerts": 2436,
+      "tp": 276,
+      "fp": 2160,
+      "fn": 2274,
+      "tn": 54344,
+      "precision": 0.11330049261083744,
+      "recall": 0.10823529411764705,
+      "false_positive_rate": 0.038227382132238426,
+      "average_precision": 0.08228331306043035,
+      "roc_auc": 0.6915907810101246
+    },
+    "baseline_at_equal_capacity": {
+      "rows": 59054,
+      "positives": 2550,
+      "alerts": 2436,
+      "tp": 276,
+      "fp": 2160,
+      "fn": 2274,
+      "tn": 54344,
+      "precision": 0.11330049261083744,
+      "recall": 0.10823529411764705,
+      "false_positive_rate": 0.038227382132238426,
+      "average_precision": 0.08228331306043035,
+      "roc_auc": 0.6915907810101246
+    },
+    "candidates": [
+      {
+        "strength": 0.0,
+        "at_frozen_threshold": {
+          "rows": 59054,
+          "positives": 2550,
+          "alerts": 2436,
+          "tp": 276,
+          "fp": 2160,
+          "fn": 2274,
+          "tn": 54344,
+          "precision": 0.11330049261083744,
+          "recall": 0.10823529411764705,
+          "false_positive_rate": 0.038227382132238426,
+          "average_precision": 0.08228331306043035,
+          "roc_auc": 0.6915907810101246
+        },
+        "at_equal_capacity": {
+          "rows": 59054,
+          "positives": 2550,
+          "alerts": 2436,
+          "tp": 276,
+          "fp": 2160,
+          "fn": 2274,
+          "tn": 54344,
+          "precision": 0.11330049261083744,
+          "recall": 0.10823529411764705,
+          "false_positive_rate": 0.038227382132238426,
+          "average_precision": 0.08228331306043035,
+          "roc_auc": 0.6915907810101246
+        },
+        "recall_drop": 0.0,
+        "false_positives_removed": 0,
+        "detected_fraud_lost": 0,
+        "relative_detected_fraud_loss": 0.0,
+        "capacity_tp_gain": 0
+      },
+      {
+        "strength": 0.25,
+        "at_frozen_threshold": {
+          "rows": 59054,
+          "positives": 2550,
+          "alerts": 2378,
+          "tp": 264,
+          "fp": 2114,
+          "fn": 2286,
+          "tn": 54390,
+          "precision": 0.11101766190075694,
+          "recall": 0.10352941176470588,
+          "false_positive_rate": 0.037413280475718534,
+          "average_precision": 0.08215795573904128,
+          "roc_auc": 0.6914021530316785
+        },
+        "at_equal_capacity": {
+          "rows": 59054,
+          "positives": 2550,
+          "alerts": 2436,
+          "tp": 268,
+          "fp": 2168,
+          "fn": 2282,
+          "tn": 54336,
+          "precision": 0.11001642036124795,
+          "recall": 0.10509803921568628,
+          "false_positive_rate": 0.038368965029024496,
+          "average_precision": 0.08215795573904128,
+          "roc_auc": 0.6914021530316785
+        },
+        "recall_drop": 0.004705882352941171,
+        "false_positives_removed": 46,
+        "detected_fraud_lost": 12,
+        "relative_detected_fraud_loss": 0.043478260869565216,
+        "capacity_tp_gain": -8
+      },
+      {
+        "strength": 0.5,
+        "at_frozen_threshold": {
+          "rows": 59054,
+          "positives": 2550,
+          "alerts": 2316,
+          "tp": 253,
+          "fp": 2063,
+          "fn": 2297,
+          "tn": 54441,
+          "precision": 0.10924006908462867,
+          "recall": 0.0992156862745098,
+          "false_positive_rate": 0.036510689508707346,
+          "average_precision": 0.08205102675960244,
+          "roc_auc": 0.6911955738687944
+        },
+        "at_equal_capacity": {
+          "rows": 59054,
+          "positives": 2550,
+          "alerts": 2436,
+          "tp": 257,
+          "fp": 2179,
+          "fn": 2293,
+          "tn": 54325,
+          "precision": 0.1055008210180624,
+          "recall": 0.1007843137254902,
+          "false_positive_rate": 0.03856364151210534,
+          "average_precision": 0.08205102675960244,
+          "roc_auc": 0.6911955738687944
+        },
+        "recall_drop": 0.009019607843137253,
+        "false_positives_removed": 97,
+        "detected_fraud_lost": 23,
+        "relative_detected_fraud_loss": 0.08333333333333333,
+        "capacity_tp_gain": -19
+      },
+      {
+        "strength": 1.0,
+        "at_frozen_threshold": {
+          "rows": 59054,
+          "positives": 2550,
+          "alerts": 2255,
+          "tp": 247,
+          "fp": 2008,
+          "fn": 2303,
+          "tn": 54496,
+          "precision": 0.10953436807095343,
+          "recall": 0.09686274509803922,
+          "false_positive_rate": 0.035537307093303126,
+          "average_precision": 0.08184644053150693,
+          "roc_auc": 0.6907751767704109
+        },
+        "at_equal_capacity": {
+          "rows": 59054,
+          "positives": 2550,
+          "alerts": 2436,
+          "tp": 254,
+          "fp": 2182,
+          "fn": 2296,
+          "tn": 54322,
+          "precision": 0.10426929392446634,
+          "recall": 0.0996078431372549,
+          "false_positive_rate": 0.038616735098400114,
+          "average_precision": 0.08184644053150693,
+          "roc_auc": 0.6907751767704109
+        },
+        "recall_drop": 0.011372549019607839,
+        "false_positives_removed": 152,
+        "detected_fraud_lost": 29,
+        "relative_detected_fraud_loss": 0.10507246376811594,
+        "capacity_tp_gain": -22
+      }
+    ],
+    "original_criterion": {
+      "rule": "Maximise removed false positives subject to recall drop <= 0.01 at the frozen threshold.",
+      "selected_strength": 0.5,
+      "shipped_strength": 0.5,
+      "flaw": "The objective followed the brief, which asks for false-positive reduction. The constraint did not: an absolute recall tolerance permits losing a large share of the fraud that was actually being caught, and the equal-capacity comparison was run after the selection instead of before."
+    },
+    "capacity_criterion": {
+      "rule": "Maximise fraud caught at an equal review capacity, then average precision, then the smaller strength.",
+      "selected_strength": 0.0,
+      "capacity_tp_gain": 0
+    },
+    "criteria_agree": false,
+    "serving_default": "raw",
+    "frozen_outputs_written": false,
+    "test_labels_used": false,
+    "input_sha256": {
+      "config/context.json": "be2744eed55d521870ca55b6faf54d95f7e2040a9c2f7e0c78cbcb6edf75128c",
+      "config/context_evaluation.json": "8a6b5f6a805483bdcb50be7f03c4bd1df88b289829064f82b55fd2392943f690",
+      "scripts/reselect_context_strength.py": "3b87bcb489b87f24c0f64754e395baddd40b0e4d73b7d3d589d4aa0f5c0d8f19"
+    }
+  },
+  "product_risk_uncertainty": {
+    "scope": "Later-validation audit segment, already seen during context development. Not an independent holdout.",
+    "segment_rows": 59054,
+    "segment_positives": 2061,
+    "validation_audit_boundary_seconds": 10438003.0,
+    "half_boundary_seconds": 11246665.0,
+    "protocol": {
+      "block_hours": [
+        6,
+        24
+      ],
+      "bootstrap_resamples": 1000,
+      "min_blocks": 8,
+      "review_rates": [
+        0.01,
+        0.05,
+        0.1
+      ],
+      "primary_review_rate": 0.05,
+      "seed": 42
+    },
+    "comparisons": {
+      "behavior_minus_raw": [
+        "raw",
+        "behavior_context"
+      ],
+      "product_minus_raw": [
+        "raw",
+        "product_context"
+      ],
+      "product_minus_behavior": [
+        "behavior_context",
+        "product_context"
+      ]
+    },
+    "observed": {
+      "0.01": {
+        "reviews": 591,
+        "tp": {
+          "raw": 46,
+          "behavior_context": 46,
+          "product_context": 37
+        },
+        "gaps": {
+          "behavior_minus_raw": 0,
+          "product_minus_raw": -9,
+          "product_minus_behavior": -9
+        }
+      },
+      "0.05": {
+        "reviews": 2953,
+        "tp": {
+          "raw": 230,
+          "behavior_context": 227,
+          "product_context": 242
+        },
+        "gaps": {
+          "behavior_minus_raw": -3,
+          "product_minus_raw": 12,
+          "product_minus_behavior": 15
+        }
+      },
+      "0.1": {
+        "reviews": 5906,
+        "tp": {
+          "raw": 457,
+          "behavior_context": 458,
+          "product_context": 551
+        },
+        "gaps": {
+          "behavior_minus_raw": 1,
+          "product_minus_raw": 94,
+          "product_minus_behavior": 93
+        }
+      }
+    },
+    "block_bootstrap": {
+      "6h_at_0.01": {
+        "method": "paired_nonoverlapping_time_block_percentile",
+        "hours": 6,
+        "blocks": 82,
+        "resamples": 1000,
+        "rate": 0.01,
+        "assumption": "Observed time blocks are exchangeable; cross-block entity dependence remains.",
+        "scope": "Conditional on fitted models and this evaluation window; not a future-period guarantee.",
+        "status": "ok",
+        "sample_rows_min": 47664,
+        "sample_rows_max": 69056,
+        "comparisons": {
+          "behavior_minus_raw": {
+            "observed_tp_gap": 0,
+            "ci_low": -1.7965536398349302,
+            "ci_high": 4.103070069037457,
+            "units": "TP difference per original evaluation-window row count",
+            "excludes_zero": false
+          },
+          "product_minus_raw": {
+            "observed_tp_gap": -9,
+            "ci_low": -34.35269410048688,
+            "ci_high": 12.807720659271643,
+            "units": "TP difference per original evaluation-window row count",
+            "excludes_zero": false
+          },
+          "product_minus_behavior": {
+            "observed_tp_gap": -9,
+            "ci_low": -34.35269410048688,
+            "ci_high": 12.534068801205166,
+            "units": "TP difference per original evaluation-window row count",
+            "excludes_zero": false
+          }
+        }
+      },
+      "6h_at_0.05": {
+        "method": "paired_nonoverlapping_time_block_percentile",
+        "hours": 6,
+        "blocks": 82,
+        "resamples": 1000,
+        "rate": 0.05,
+        "assumption": "Observed time blocks are exchangeable; cross-block entity dependence remains.",
+        "scope": "Conditional on fitted models and this evaluation window; not a future-period guarantee.",
+        "status": "ok",
+        "sample_rows_min": 47664,
+        "sample_rows_max": 69056,
+        "comparisons": {
+          "behavior_minus_raw": {
+            "observed_tp_gap": -3,
+            "ci_low": -9.027939065553571,
+            "ci_high": 9.735436072447213,
+            "units": "TP difference per original evaluation-window row count",
+            "excludes_zero": false
+          },
+          "product_minus_raw": {
+            "observed_tp_gap": 12,
+            "ci_low": -10.636734804420714,
+            "ci_high": 44.72560270829957,
+            "units": "TP difference per original evaluation-window row count",
+            "excludes_zero": false
+          },
+          "product_minus_behavior": {
+            "observed_tp_gap": 15,
+            "ci_low": -13.001167368902776,
+            "ci_high": 46.01816317578918,
+            "units": "TP difference per original evaluation-window row count",
+            "excludes_zero": false
+          }
+        }
+      },
+      "6h_at_0.1": {
+        "method": "paired_nonoverlapping_time_block_percentile",
+        "hours": 6,
+        "blocks": 82,
+        "resamples": 1000,
+        "rate": 0.1,
+        "assumption": "Observed time blocks are exchangeable; cross-block entity dependence remains.",
+        "scope": "Conditional on fitted models and this evaluation window; not a future-period guarantee.",
+        "status": "ok",
+        "sample_rows_min": 47664,
+        "sample_rows_max": 69056,
+        "comparisons": {
+          "behavior_minus_raw": {
+            "observed_tp_gap": 1,
+            "ci_low": 0.0,
+            "ci_high": 2.1626685913932397,
+            "units": "TP difference per original evaluation-window row count",
+            "excludes_zero": false
+          },
+          "product_minus_raw": {
+            "observed_tp_gap": 94,
+            "ci_low": 29.881790359459192,
+            "ci_high": 159.60492865278502,
+            "units": "TP difference per original evaluation-window row count",
+            "excludes_zero": true
+          },
+          "product_minus_behavior": {
+            "observed_tp_gap": 93,
+            "ci_low": 28.74818847549087,
+            "ci_high": 159.60492865278502,
+            "units": "TP difference per original evaluation-window row count",
+            "excludes_zero": true
+          }
+        }
+      },
+      "24h_at_0.01": {
+        "method": "paired_nonoverlapping_time_block_percentile",
+        "hours": 24,
+        "blocks": 21,
+        "resamples": 1000,
+        "rate": 0.01,
+        "assumption": "Observed time blocks are exchangeable; cross-block entity dependence remains.",
+        "scope": "Conditional on fitted models and this evaluation window; not a future-period guarantee.",
+        "status": "ok",
+        "sample_rows_min": 50986,
+        "sample_rows_max": 66678,
+        "comparisons": {
+          "behavior_minus_raw": {
+            "observed_tp_gap": 0,
+            "ci_low": -3.622206248122078,
+            "ci_high": 3.82990193833284,
+            "units": "TP difference per original evaluation-window row count",
+            "excludes_zero": false
+          },
+          "product_minus_raw": {
+            "observed_tp_gap": -9,
+            "ci_low": -37.06950879485382,
+            "ci_high": 14.578222745014795,
+            "units": "TP difference per original evaluation-window row count",
+            "excludes_zero": false
+          },
+          "product_minus_behavior": {
+            "observed_tp_gap": -9,
+            "ci_low": -37.24588951718138,
+            "ci_high": 14.115484981329637,
+            "units": "TP difference per original evaluation-window row count",
+            "excludes_zero": false
+          }
+        }
+      },
+      "24h_at_0.05": {
+        "method": "paired_nonoverlapping_time_block_percentile",
+        "hours": 24,
+        "blocks": 21,
+        "resamples": 1000,
+        "rate": 0.05,
+        "assumption": "Observed time blocks are exchangeable; cross-block entity dependence remains.",
+        "scope": "Conditional on fitted models and this evaluation window; not a future-period guarantee.",
+        "status": "ok",
+        "sample_rows_min": 50986,
+        "sample_rows_max": 66678,
+        "comparisons": {
+          "behavior_minus_raw": {
+            "observed_tp_gap": -3,
+            "ci_low": -8.494526267137,
+            "ci_high": 9.239126953849716,
+            "units": "TP difference per original evaluation-window row count",
+            "excludes_zero": false
+          },
+          "product_minus_raw": {
+            "observed_tp_gap": 12,
+            "ci_low": -6.911145331858041,
+            "ci_high": 47.07878844130682,
+            "units": "TP difference per original evaluation-window row count",
+            "excludes_zero": false
+          },
+          "product_minus_behavior": {
+            "observed_tp_gap": 15,
+            "ci_low": -9.553503408371178,
+            "ci_high": 49.53140711399393,
+            "units": "TP difference per original evaluation-window row count",
+            "excludes_zero": false
+          }
+        }
+      },
+      "24h_at_0.1": {
+        "method": "paired_nonoverlapping_time_block_percentile",
+        "hours": 24,
+        "blocks": 21,
+        "resamples": 1000,
+        "rate": 0.1,
+        "assumption": "Observed time blocks are exchangeable; cross-block entity dependence remains.",
+        "scope": "Conditional on fitted models and this evaluation window; not a future-period guarantee.",
+        "status": "ok",
+        "sample_rows_min": 50986,
+        "sample_rows_max": 66678,
+        "comparisons": {
+          "behavior_minus_raw": {
+            "observed_tp_gap": 1,
+            "ci_low": 0.0,
+            "ci_high": 2.926601562713175,
+            "units": "TP difference per original evaluation-window row count",
+            "excludes_zero": false
+          },
+          "product_minus_raw": {
+            "observed_tp_gap": 94,
+            "ci_low": 27.87926321899638,
+            "ci_high": 169.00884784425145,
+            "units": "TP difference per original evaluation-window row count",
+            "excludes_zero": true
+          },
+          "product_minus_behavior": {
+            "observed_tp_gap": 93,
+            "ci_low": 26.98188980805647,
+            "ci_high": 169.00884784425145,
+            "units": "TP difference per original evaluation-window row count",
+            "excludes_zero": true
+          }
+        }
+      }
+    },
+    "chronological_halves": {
+      "first_half": {
+        "0.01": {
+          "reviews": 296,
+          "tp": {
+            "raw": 18,
+            "behavior_context": 19,
+            "product_context": 20
+          },
+          "gaps": {
+            "behavior_minus_raw": 1,
+            "product_minus_raw": 2,
+            "product_minus_behavior": 1
+          }
+        },
+        "0.05": {
+          "reviews": 1477,
+          "tp": {
+            "raw": 100,
+            "behavior_context": 100,
+            "product_context": 104
+          },
+          "gaps": {
+            "behavior_minus_raw": 0,
+            "product_minus_raw": 4,
+            "product_minus_behavior": 4
+          }
+        },
+        "0.1": {
+          "reviews": 2953,
+          "tp": {
+            "raw": 198,
+            "behavior_context": 198,
+            "product_context": 253
+          },
+          "gaps": {
+            "behavior_minus_raw": 0,
+            "product_minus_raw": 55,
+            "product_minus_behavior": 55
+          }
+        }
+      },
+      "second_half": {
+        "0.01": {
+          "reviews": 296,
+          "tp": {
+            "raw": 29,
+            "behavior_context": 29,
+            "product_context": 16
+          },
+          "gaps": {
+            "behavior_minus_raw": 0,
+            "product_minus_raw": -13,
+            "product_minus_behavior": -13
+          }
+        },
+        "0.05": {
+          "reviews": 1477,
+          "tp": {
+            "raw": 128,
+            "behavior_context": 130,
+            "product_context": 147
+          },
+          "gaps": {
+            "behavior_minus_raw": 2,
+            "product_minus_raw": 19,
+            "product_minus_behavior": 17
+          }
+        },
+        "0.1": {
+          "reviews": 2953,
+          "tp": {
+            "raw": 262,
+            "behavior_context": 262,
+            "product_context": 295
+          },
+          "gaps": {
+            "behavior_minus_raw": 0,
+            "product_minus_raw": 33,
+            "product_minus_behavior": 33
+          }
+        }
+      }
+    },
+    "primary_gap_sign_consistent": {
+      "behavior_minus_raw": false,
+      "product_minus_raw": true,
+      "product_minus_behavior": true
+    },
+    "limitations": [
+      "Models and the product policy are fixed; refitting uncertainty is not included.",
+      "Blocks are assumed exchangeable; the same card/address entity can appear in several blocks.",
+      "This segment was already used while developing the behavioural context, so it is a development check.",
+      "An interval that excludes zero in this window is not evidence for a later period."
+    ],
+    "test_labels_used": false,
+    "input_sha256": {
+      "artifacts/product_context/validation_scores.parquet": "6966383248e1b884e270329223ea1374c156120354a6d4fa80ab597c944797e6",
+      "scripts/evaluate_product_uncertainty.py": "06f35d357fd408fc3b3546ceec52421b943d93e701c94507e2dc87cc0d2d67d9",
+      "src/fraud_case/evaluation.py": "0dd9deb8d682af3e2e7e470e3392f74f8a11f48f5392568818c3c0b5c5a143fb"
+    }
+  },
+  "default_policy_rule_decisions": {
+    "scope": "Validation split only. Labelled comparison uses the later-validation segment already seen during context development; final test labels are not read.",
+    "rule_config_sha256": "b9dbccda29dd849708e4ef6473ecb98ac4542642c6186457a64b7c2f58c1a434",
+    "rule_comparison_threshold": 0.85,
+    "validation_rows": 118108,
+    "audit_rows": 59054,
+    "audit_positives": 2061,
+    "stored_decisions_reproduced_by_behavior_context": true,
+    "stored_decisions_profile": "behavior_context",
+    "final_report_policy": "reports/final_evaluation.md rule metrics belong to the behaviour-context policy, not to the current raw default.",
+    "measured": {
+      "raw": {
+        "rule_review": {
+          "rows": 59054,
+          "reviews": 3805,
+          "tp": 251,
+          "fp": 3554,
+          "fn": 1810,
+          "tn": 53439,
+          "precision": 0.0659658344283837,
+          "recall": 0.1217855409995148,
+          "false_positive_rate": 0.062358535258715986
+        },
+        "score_at_0_85": {
+          "rows": 59054,
+          "reviews": 2273,
+          "tp": 177,
+          "fp": 2096,
+          "fn": 1884,
+          "tn": 54897,
+          "precision": 0.07787065552133744,
+          "recall": 0.0858806404657933,
+          "false_positive_rate": 0.036776446230238805
+        },
+        "action_counts": {
+          "no_rule_match": 43864,
+          "monitor": 11385,
+          "review": 3805
+        },
+        "action_conflicts": 60
+      },
+      "behavior_context": {
+        "rule_review": {
+          "rows": 59054,
+          "reviews": 3667,
+          "tp": 236,
+          "fp": 3431,
+          "fn": 1825,
+          "tn": 53562,
+          "precision": 0.06435778565584947,
+          "recall": 0.11450752062105773,
+          "false_positive_rate": 0.06020037548470865
+        },
+        "score_at_0_85": {
+          "rows": 59054,
+          "reviews": 2135,
+          "tp": 162,
+          "fp": 1973,
+          "fn": 1899,
+          "tn": 55020,
+          "precision": 0.07587822014051522,
+          "recall": 0.07860262008733625,
+          "false_positive_rate": 0.03461828645623147
+        },
+        "action_counts": {
+          "no_rule_match": 43975,
+          "monitor": 11412,
+          "review": 3667
+        },
+        "action_conflicts": 64
+      }
+    },
+    "rule_matches": {
+      "raw": {
+        "R01_multi_entity_deviation": 4,
+        "R02_hourly_velocity": 4,
+        "R03_daily_velocity": 241,
+        "R04_amount_jump": 1283,
+        "R05_new_device_anomaly": 32,
+        "R06_new_product_and_email": 50,
+        "R07_rare_product_card_amount": 17,
+        "R08_rare_email_pair_anomaly": 115,
+        "R09_high_adjusted_score": 2273,
+        "R10_familiar_activity": 11445
+      },
+      "behavior_context": {
+        "R01_multi_entity_deviation": 4,
+        "R02_hourly_velocity": 4,
+        "R03_daily_velocity": 241,
+        "R04_amount_jump": 1283,
+        "R05_new_device_anomaly": 32,
+        "R06_new_product_and_email": 50,
+        "R07_rare_product_card_amount": 17,
+        "R08_rare_email_pair_anomaly": 115,
+        "R09_high_adjusted_score": 2135,
+        "R10_familiar_activity": 11476
+      }
+    },
+    "validation_decisions_changed": 301,
+    "audit_decisions_changed": 165,
+    "audit_decision_transitions": {
+      "no_rule_match -> review": 138,
+      "monitor -> no_rule_match": 27
+    },
+    "equal_volume_r09_threshold": {
+      "target_alerts": 2135,
+      "threshold": 0.8541560831329518,
+      "threshold_alerts": 2135
+    },
+    "equal_volume_note": "Threshold on raw scores aimed at the behaviour-context review volume on this segment. Found from score volume only; no labels were used and R09 was not changed. A single threshold cannot hit an exact capacity when scores tie, so threshold_alerts reports what the threshold actually produces; exact-k selection needs the ID-tie-broken top-k instead.",
+    "recommendation": "Keep R09 at 0.85 and report the higher review volume, or recalibrate it against a stated capacity policy. I did not recalibrate it here because that is a selection step and the capacity policy was not given.",
+    "test_labels_used": false,
+    "input_sha256": {
+      "config/rules.json": "3e19b476497bc5c10e9b908459ee286bef17086d09e9d7e523f532f6ba8d51c2",
+      "data/processed/rule_decisions.parquet": "6e2b7d4a12475deb7f5cbab6ac58dfacf2ec2fc81ad0a6b7e4019ad0a602969f",
+      "scripts/evaluate_default_policy.py": "23ad021b2bace42787d7f5fa97014eeab61135ac6470aea81a093500bcc3a769"
+    }
+  },
+  "context_api": {
+    "scope": "Synthetic API scenarios using frozen real scoring artifacts; no fraud labels read.",
+    "behavior_profile_score_replays": 64,
+    "default_score_replays": 64,
+    "default_score_fields": [
+      "raw_anomaly_score",
+      "adjusted_anomaly_score",
+      "context_reduction",
+      "column_raw",
+      "column_normalized",
+      "column_contribution",
+      "multivariate_raw",
+      "multivariate_normalized",
+      "multivariate_contribution",
+      "entity_raw",
+      "entity_normalized",
+      "entity_contribution",
+      "temporal_raw",
+      "temporal_normalized",
+      "temporal_contribution"
+    ],
+    "scenarios": [
+      {
+        "scenario": "unknown_calendar",
+        "status": 200,
+        "raw_score": 0.4027476466624557,
+        "adjusted_score": 0.4027476466624557,
+        "reduction": 0.0,
+        "applied": []
+      },
+      {
+        "scenario": "weekday_business_hours",
+        "status": 200,
+        "raw_score": 0.4027476466624557,
+        "adjusted_score": 0.3981025115381023,
+        "reduction": 0.004645135124353411,
+        "applied": [
+          {
+            "layer": "temporal",
+            "rule": "business_hours",
+            "reduction": 0.004645135124353411
+          }
+        ]
+      },
+      {
+        "scenario": "weekend_without_schedule",
+        "status": 200,
+        "raw_score": 0.4027476466624557,
+        "adjusted_score": 0.4027476466624557,
+        "reduction": 0.0,
+        "applied": []
+      },
+      {
+        "scenario": "weekend_with_schedule",
+        "status": 200,
+        "raw_score": 0.4027476466624557,
+        "adjusted_score": 0.3981025115381023,
+        "reduction": 0.004645135124353411,
+        "applied": [
+          {
+            "layer": "temporal",
+            "rule": "expected_weekend",
+            "reduction": 0.004645135124353411
+          }
+        ]
+      },
+      {
+        "scenario": "prior_trust",
+        "status": 200,
+        "raw_score": 0.4027476466624557,
+        "adjusted_score": 0.3910362963164447,
+        "reduction": 0.011711350346010996,
+        "applied": [
+          {
+            "layer": "multivariate",
+            "rule": "verified_trust",
+            "reduction": 0.011711350346010996
+          }
+        ]
+      },
+      {
+        "scenario": "same_second_trust",
+        "status": 200,
+        "raw_score": 0.4027476466624557,
+        "adjusted_score": 0.4027476466624557,
+        "reduction": 0.0,
+        "applied": []
+      }
+    ],
+    "default_profile": "raw",
+    "default_profile_applies_no_reduction": true,
+    "default_profile_scenarios": [
+      {
+        "scenario": "unknown_calendar",
+        "matched_rules": [],
+        "reduction": 0.0
+      },
+      {
+        "scenario": "weekday_business_hours",
+        "matched_rules": [
+          "business_hours"
+        ],
+        "reduction": 0.0
+      },
+      {
+        "scenario": "weekend_without_schedule",
+        "matched_rules": [],
+        "reduction": 0.0
+      },
+      {
+        "scenario": "weekend_with_schedule",
+        "matched_rules": [
+          "expected_weekend"
+        ],
+        "reduction": 0.0
+      },
+      {
+        "scenario": "prior_trust",
+        "matched_rules": [
+          "verified_trust"
+        ],
+        "reduction": 0.0
+      },
+      {
+        "scenario": "same_second_trust",
+        "matched_rules": [],
+        "reduction": 0.0
+      }
+    ],
+    "default_profile_note": "Development showed no fixed-budget gain from the behavioural context, so the serving default applies no reduction. Rule matches are still reported.",
+    "source_sha256": {
+      "src/fraud_case/api.py": "06abe774c01ba484f4b5b0c3e12ba9a69c0e035f2a33680c63d1cd0353d80258",
+      "src/fraud_case/service.py": "19899c200854cee2e6c84198f66d0a299fc9b97b26d25309fa93dffcf147d6e0"
+    }
+  },
+  "product_context_verification": {
+    "validation_rows_verified": 118108,
+    "api_requests_verified": 64,
+    "source_sha256": {
+      "src/fraud_case/product_context.py": "5e7df59d83d7d2a35a3cbff4ef662a444415b669f76cd704ec942f96da419581",
+      "src/fraud_case/service.py": "19899c200854cee2e6c84198f66d0a299fc9b97b26d25309fa93dffcf147d6e0",
+      "src/fraud_case/api.py": "06abe774c01ba484f4b5b0c3e12ba9a69c0e035f2a33680c63d1cd0353d80258",
+      "src/fraud_case/container.py": "c15946cf4e4f15d06e987089818c25f056c3874537e14eadbeb65c0a75226025",
+      "artifacts/product_context/policy.json": "f99c678e935ccc7d8a2a6d103769e7ed200c5cb2e683b149fb71921dad788de5"
+    },
+    "later_validation_rules": {
+      "baseline": {
+        "rows": 59054,
+        "reviews": 3667,
+        "tp": 236,
+        "fp": 3431,
+        "fn": 1825,
+        "tn": 53562,
+        "precision": 0.06435778565584947,
+        "recall": 0.11450752062105773,
+        "false_positive_rate": 0.06020037548470865
+      },
+      "product_risk": {
+        "rows": 59054,
+        "reviews": 5275,
+        "tp": 382,
+        "fp": 4893,
+        "fn": 1679,
+        "tn": 52100,
+        "precision": 0.07241706161137441,
+        "recall": 0.18534691897137312,
+        "false_positive_rate": 0.08585264857087713
+      }
+    },
+    "test_labels_read": false
+  },
+  "product_context_http_status": {
+    "/score": 200,
+    "/rules/evaluate": 200,
+    "/explain": 200,
+    "/rag/query": 200
+  },
+  "product_context_development": {
+    "plan": {
+      "case_scope": "Step 6: transaction-type risk profiles, explicitly suggested in the case.",
+      "strengths": [
+        0.0,
+        0.025,
+        0.05,
+        0.1
+      ],
+      "prior_pseudocount": 1000,
+      "minimum_product_support": 1000,
+      "rule": "Add strength * clipped log(product smoothed training fraud rate / global training fraud rate). Clamp log ratio to [-1,1] and final score to [0,1]. Existing strong-signal guard blocks negative adjustments. Unknown/unsupported product makes no risk adjustment. Other existing behavior/calendar/trust rules remain; product-typical-amount discount is replaced.",
+      "selection": "Early validation in two chronological blocks, 5% review budget each: maximize minimum TP gain versus original raw, then total TP, then AP, then smaller strength.",
+      "training_labels": "Product profile uses train labels. Assume these historical labels are available before scoring validation; no fraud-report delay is supplied.",
+      "validation_status": "Previously seen development data; later half not used to select this candidate. Not an independent holdout.",
+      "test_labels_read": false,
+      "production_promotion": false
+    },
+    "global_train_rate": 0.03383344057980831,
+    "profiles": {
+      "C": {
+        "count": 41081,
+        "fraud_count": 4412,
+        "smoothed_rate": 0.1056494246947508,
+        "log_relative_risk": 1.0
+      },
+      "H": {
+        "count": 26612,
+        "fraud_count": 1133,
+        "smoothed_rate": 0.04225820080326699,
+        "log_relative_risk": 0.22234875716506922
+      },
+      "R": {
+        "count": 28182,
+        "fraud_count": 909,
+        "smoothed_rate": 0.032308732800349814,
+        "log_relative_risk": -0.046112120632862165
+      },
+      "S": {
+        "count": 6314,
+        "fraud_count": 379,
+        "smoothed_rate": 0.056444276808833516,
+        "log_relative_risk": 0.5118042206603519
+      },
+      "W": {
+        "count": 252135,
+        "fraud_count": 5155,
+        "smoothed_rate": 0.020498285265094944,
+        "log_relative_risk": -0.5011084426145103
+      }
+    },
+    "candidates": [
+      {
+        "strength": 0.0,
+        "blocks": [
+          {
+            "rows": 29527,
+            "positives": 1138,
+            "alerts": 1477,
+            "tp": 169,
+            "fp": 1308,
+            "fn": 969,
+            "tn": 27081,
+            "precision": 0.11442112389979689,
+            "recall": 0.14850615114235502,
+            "false_positive_rate": 0.04607418366268625,
+            "average_precision": 0.08313275602287563,
+            "roc_auc": 0.7093488585426383
+          },
+          {
+            "rows": 29527,
+            "positives": 1412,
+            "alerts": 1477,
+            "tp": 156,
+            "fp": 1321,
+            "fn": 1256,
+            "tn": 26794,
+            "precision": 0.10561949898442789,
+            "recall": 0.11048158640226628,
+            "false_positive_rate": 0.04698559487817891,
+            "average_precision": 0.08276928178841092,
+            "roc_auc": 0.6745349306445251
+          }
+        ],
+        "calibration": {
+          "rows": 59054,
+          "positives": 2550,
+          "alerts": 2953,
+          "tp": 324,
+          "fp": 2629,
+          "fn": 2226,
+          "tn": 53875,
+          "precision": 0.10971892990179478,
+          "recall": 0.12705882352941175,
+          "false_positive_rate": 0.04652767945632168,
+          "average_precision": 0.0822257693445024,
+          "roc_auc": 0.6912603584545811
+        },
+        "threshold": 0.8516781251058354,
+        "minimum_block_tp_gain": 0
+      },
+      {
+        "strength": 0.025,
+        "blocks": [
+          {
+            "rows": 29527,
+            "positives": 1138,
+            "alerts": 1477,
+            "tp": 173,
+            "fp": 1304,
+            "fn": 965,
+            "tn": 27085,
+            "precision": 0.11712931618144888,
+            "recall": 0.15202108963093147,
+            "false_positive_rate": 0.04593328401845785,
+            "average_precision": 0.0856475857456507,
+            "roc_auc": 0.7174845903395465
+          },
+          {
+            "rows": 29527,
+            "positives": 1412,
+            "alerts": 1477,
+            "tp": 158,
+            "fp": 1319,
+            "fn": 1254,
+            "tn": 26796,
+            "precision": 0.1069735951252539,
+            "recall": 0.11189801699716714,
+            "false_positive_rate": 0.046914458474124135,
+            "average_precision": 0.08579309565134324,
+            "roc_auc": 0.68650800108216
+          }
+        ],
+        "calibration": {
+          "rows": 59054,
+          "positives": 2550,
+          "alerts": 2953,
+          "tp": 326,
+          "fp": 2627,
+          "fn": 2224,
+          "tn": 53877,
+          "precision": 0.11039620724686759,
+          "recall": 0.12784313725490196,
+          "false_positive_rate": 0.04649228373212516,
+          "average_precision": 0.08534582324733589,
+          "roc_auc": 0.701560729346248
+        },
+        "threshold": 0.8516781251058354,
+        "minimum_block_tp_gain": 2
+      },
+      {
+        "strength": 0.05,
+        "blocks": [
+          {
+            "rows": 29527,
+            "positives": 1138,
+            "alerts": 1477,
+            "tp": 172,
+            "fp": 1305,
+            "fn": 966,
+            "tn": 27084,
+            "precision": 0.11645226811103589,
+            "recall": 0.15114235500878734,
+            "false_positive_rate": 0.045968508929514956,
+            "average_precision": 0.08751115225713602,
+            "roc_auc": 0.7240395346077322
+          },
+          {
+            "rows": 29527,
+            "positives": 1412,
+            "alerts": 1477,
+            "tp": 165,
+            "fp": 1312,
+            "fn": 1247,
+            "tn": 26803,
+            "precision": 0.11171293161814488,
+            "recall": 0.11685552407932011,
+            "false_positive_rate": 0.04666548105993242,
+            "average_precision": 0.08937858094128469,
+            "roc_auc": 0.696720206214964
+          }
+        ],
+        "calibration": {
+          "rows": 59054,
+          "positives": 2550,
+          "alerts": 2953,
+          "tp": 336,
+          "fp": 2617,
+          "fn": 2214,
+          "tn": 53887,
+          "precision": 0.11378259397223163,
+          "recall": 0.13176470588235295,
+          "false_positive_rate": 0.046315305111142575,
+          "average_precision": 0.08811689034877362,
+          "roc_auc": 0.7101461669900864
+        },
+        "threshold": 0.8516781251058354,
+        "minimum_block_tp_gain": 3
+      },
+      {
+        "strength": 0.1,
+        "blocks": [
+          {
+            "rows": 29527,
+            "positives": 1138,
+            "alerts": 1477,
+            "tp": 178,
+            "fp": 1299,
+            "fn": 960,
+            "tn": 27090,
+            "precision": 0.12051455653351388,
+            "recall": 0.15641476274165203,
+            "false_positive_rate": 0.04575715946317235,
+            "average_precision": 0.09171711250237452,
+            "roc_auc": 0.7334041607863041
+          },
+          {
+            "rows": 29527,
+            "positives": 1412,
+            "alerts": 1477,
+            "tp": 163,
+            "fp": 1314,
+            "fn": 1249,
+            "tn": 26801,
+            "precision": 0.1103588354773189,
+            "recall": 0.11543909348441926,
+            "false_positive_rate": 0.0467366174639872,
+            "average_precision": 0.09537686960573864,
+            "roc_auc": 0.7118282660400752
+          }
+        ],
+        "calibration": {
+          "rows": 59054,
+          "positives": 2550,
+          "alerts": 2953,
+          "tp": 340,
+          "fp": 2613,
+          "fn": 2210,
+          "tn": 53891,
+          "precision": 0.11513714866237724,
+          "recall": 0.13333333333333333,
+          "false_positive_rate": 0.04624451366274954,
+          "average_precision": 0.09318271826729319,
+          "roc_auc": 0.7227150602560152
+        },
+        "threshold": 0.8516781251058354,
+        "minimum_block_tp_gain": 7
+      }
+    ],
+    "selected": {
+      "strength": 0.1,
+      "blocks": [
+        {
+          "rows": 29527,
+          "positives": 1138,
+          "alerts": 1477,
+          "tp": 178,
+          "fp": 1299,
+          "fn": 960,
+          "tn": 27090,
+          "precision": 0.12051455653351388,
+          "recall": 0.15641476274165203,
+          "false_positive_rate": 0.04575715946317235,
+          "average_precision": 0.09171711250237452,
+          "roc_auc": 0.7334041607863041
+        },
+        {
+          "rows": 29527,
+          "positives": 1412,
+          "alerts": 1477,
+          "tp": 163,
+          "fp": 1314,
+          "fn": 1249,
+          "tn": 26801,
+          "precision": 0.1103588354773189,
+          "recall": 0.11543909348441926,
+          "false_positive_rate": 0.0467366174639872,
+          "average_precision": 0.09537686960573864,
+          "roc_auc": 0.7118282660400752
+        }
+      ],
+      "calibration": {
+        "rows": 59054,
+        "positives": 2550,
+        "alerts": 2953,
+        "tp": 340,
+        "fp": 2613,
+        "fn": 2210,
+        "tn": 53891,
+        "precision": 0.11513714866237724,
+        "recall": 0.13333333333333333,
+        "false_positive_rate": 0.04624451366274954,
+        "average_precision": 0.09318271826729319,
+        "roc_auc": 0.7227150602560152
+      },
+      "threshold": 0.8516781251058354,
+      "minimum_block_tp_gain": 7
+    },
+    "later_validation_sensitivity": {
+      "0.01": {
+        "raw": {
+          "rows": 59054,
+          "positives": 2061,
+          "alerts": 591,
+          "tp": 46,
+          "fp": 545,
+          "fn": 2015,
+          "tn": 56448,
+          "precision": 0.077834179357022,
+          "recall": 0.022319262493934983,
+          "false_positive_rate": 0.009562577860439,
+          "average_precision": 0.0634030972088256,
+          "roc_auc": 0.6730754101563908
+        },
+        "original_context": {
+          "rows": 59054,
+          "positives": 2061,
+          "alerts": 591,
+          "tp": 46,
+          "fp": 545,
+          "fn": 2015,
+          "tn": 56448,
+          "precision": 0.077834179357022,
+          "recall": 0.022319262493934983,
+          "false_positive_rate": 0.009562577860439,
+          "average_precision": 0.06339548299291525,
+          "roc_auc": 0.6728770491005676
+        },
+        "product_context": {
+          "rows": 59054,
+          "positives": 2061,
+          "alerts": 591,
+          "tp": 37,
+          "fp": 554,
+          "fn": 2024,
+          "tn": 56439,
+          "precision": 0.06260575296108291,
+          "recall": 0.017952450266860747,
+          "false_positive_rate": 0.009720491990244415,
+          "average_precision": 0.07164119602070237,
+          "roc_auc": 0.7080754139448316
+        }
+      },
+      "0.05": {
+        "raw": {
+          "rows": 59054,
+          "positives": 2061,
+          "alerts": 2953,
+          "tp": 230,
+          "fp": 2723,
+          "fn": 1831,
+          "tn": 54270,
+          "precision": 0.07788689468337284,
+          "recall": 0.11159631246967491,
+          "false_positive_rate": 0.04777779727334936,
+          "average_precision": 0.0634030972088256,
+          "roc_auc": 0.6730754101563908
+        },
+        "original_context": {
+          "rows": 59054,
+          "positives": 2061,
+          "alerts": 2953,
+          "tp": 227,
+          "fp": 2726,
+          "fn": 1834,
+          "tn": 54267,
+          "precision": 0.07687097866576363,
+          "recall": 0.1101407083939835,
+          "false_positive_rate": 0.047830435316617834,
+          "average_precision": 0.06339548299291525,
+          "roc_auc": 0.6728770491005676
+        },
+        "product_context": {
+          "rows": 59054,
+          "positives": 2061,
+          "alerts": 2953,
+          "tp": 242,
+          "fp": 2711,
+          "fn": 1819,
+          "tn": 54282,
+          "precision": 0.08195055875380969,
+          "recall": 0.11741872877244056,
+          "false_positive_rate": 0.04756724510027547,
+          "average_precision": 0.07164119602070237,
+          "roc_auc": 0.7080754139448316
+        }
+      },
+      "0.1": {
+        "raw": {
+          "rows": 59054,
+          "positives": 2061,
+          "alerts": 5906,
+          "tp": 457,
+          "fp": 5449,
+          "fn": 1604,
+          "tn": 51544,
+          "precision": 0.07737893667456823,
+          "recall": 0.22173702086365843,
+          "false_positive_rate": 0.09560823258996719,
+          "average_precision": 0.0634030972088256,
+          "roc_auc": 0.6730754101563908
+        },
+        "original_context": {
+          "rows": 59054,
+          "positives": 2061,
+          "alerts": 5906,
+          "tp": 458,
+          "fp": 5448,
+          "fn": 1603,
+          "tn": 51545,
+          "precision": 0.07754825601083644,
+          "recall": 0.2222222222222222,
+          "false_positive_rate": 0.09559068657554437,
+          "average_precision": 0.06339548299291525,
+          "roc_auc": 0.6728770491005676
+        },
+        "product_context": {
+          "rows": 59054,
+          "positives": 2061,
+          "alerts": 5906,
+          "tp": 551,
+          "fp": 5355,
+          "fn": 1510,
+          "tn": 51638,
+          "precision": 0.09329495428377921,
+          "recall": 0.267345948568656,
+          "false_positive_rate": 0.09395890723422175,
+          "average_precision": 0.07164119602070237,
+          "roc_auc": 0.7080754139448316
+        }
+      }
+    },
+    "train_derived_thresholds": {
+      "raw": {
+        "rows": 59054,
+        "positives": 2061,
+        "alerts": 2207,
+        "tp": 172,
+        "fp": 2035,
+        "fn": 1889,
+        "tn": 54958,
+        "precision": 0.07793384685092886,
+        "recall": 0.08345463367297429,
+        "false_positive_rate": 0.035706139350446545,
+        "average_precision": 0.0634030972088256,
+        "roc_auc": 0.6730754101563908
+      },
+      "product_context": {
+        "rows": 59054,
+        "positives": 2061,
+        "alerts": 3707,
+        "tp": 305,
+        "fp": 3402,
+        "fn": 1756,
+        "tn": 53591,
+        "precision": 0.08227677367143242,
+        "recall": 0.14798641436196022,
+        "false_positive_rate": 0.05969154106644676,
+        "average_precision": 0.07164119602070237,
+        "roc_auc": 0.7080754139448316
+      }
+    },
+    "original_raw_threshold": 0.8516781251058354,
+    "serving_policy_changed": false,
+    "training_end_transaction_dt": 8745772.0,
+    "serving_equivalence": {
+      "rows_checked": 4000,
+      "max_absolute_difference": 0.0,
+      "engine": "fraud_case.product_context.ProductRiskContextEngine",
+      "gate": "Product risk applies only above training_end_transaction_dt, in both the experiment and the service.",
+      "threshold_source": "Train rows scored the way the service scores them, so the train quantile and the served score come from one function."
+    }
+  }
+}

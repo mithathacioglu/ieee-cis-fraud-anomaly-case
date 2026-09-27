@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "default_action": "no_rule_match",
+  "rules": [
+    {
+      "id": "R01_multi_entity_deviation", "enabled": true, "priority": 100,
+      "description": "Strong multivariate anomaly corroborated by deviation from established entity behavior.",
+      "when": {"all": [
+        {"field": "multivariate_normalized", "op": "gte", "value": 0.98},
+        {"field": "entity_raw", "op": "gte", "value": 3},
+        {"field": "prior_transaction_count", "op": "gte", "value": 5}
+      ]},
+      "then": {"action": "review"}
+    },
+    {
+      "id": "R02_hourly_velocity", "enabled": true, "priority": 95,
+      "description": "At least ten strictly earlier proxy transactions in the last hour warrant review.",
+      "when": {"field": "prior_count_1h", "op": "gte", "value": 10},
+      "then": {"action": "review"}
+    },
+    {
+      "id": "R03_daily_velocity", "enabled": true, "priority": 90,
+      "description": "High daily transaction count corroborated by a high temporal anomaly rank.",
+      "when": {"all": [
+        {"field": "prior_count_24h", "op": "gte", "value": 30},
+        {"field": "temporal_normalized", "op": "gte", "value": 0.95}
+      ]},
+      "then": {"action": "review"}
+    },
+    {
+      "id": "R04_amount_jump", "enabled": true, "priority": 85,
+      "description": "Amount at least three times the historical mean with sufficient history and strong entity deviation.",
+      "when": {"all": [
+        {"field": "prior_transaction_count", "op": "gte", "value": 5},
+        {"field": "amount_to_prior_mean", "op": "gte", "value": 3},
+        {"field": "entity_raw", "op": "gte", "value": 3}
+      ]},
+      "then": {"action": "review"}
+    },
+    {
+      "id": "R05_new_device_anomaly", "enabled": true, "priority": 80,
+      "description": "Previously unseen device description for an established proxy plus multivariate anomaly; device description is not a unique device ID.",
+      "when": {"all": [
+        {"field": "prior_transaction_count", "op": "gte", "value": 5},
+        {"field": "entity_device_is_new", "op": "eq", "value": 1},
+        {"field": "multivariate_normalized", "op": "gte", "value": 0.95}
+      ]},
+      "then": {"action": "review"}
+    },
+    {
+      "id": "R06_new_product_and_email", "enabled": true, "priority": 75,
+      "description": "Simultaneous new product and payer email domain relative to a proxy with sufficient history.",
+      "when": {"all": [
+        {"field": "prior_transaction_count", "op": "gte", "value": 5},
+        {"field": "entity_product_is_new", "op": "eq", "value": 1},
+        {"field": "entity_email_is_new", "op": "eq", "value": 1}
+      ]},
+      "then": {"action": "review"}
+    },
+    {
+      "id": "R07_rare_product_card_amount", "enabled": true, "priority": 70,
+      "description": "Rare product/card-brand combination with unusual amount after a minimum global history warm-up.",
+      "when": {"all": [
+        {"field": "prior_global_count", "op": "gte", "value": 1000},
+        {"field": "product_card_prior_frequency", "op": "lt", "value": 0.005},
+        {"field": "column_normalized", "op": "gte", "value": 0.95}
+      ]},
+      "then": {"action": "review"}
+    },
+    {
+      "id": "R08_rare_email_pair_anomaly", "enabled": true, "priority": 65,
+      "description": "Rare payer/recipient email-domain pair combined with multivariate anomaly after global history warm-up.",
+      "when": {"all": [
+        {"field": "prior_global_count", "op": "gte", "value": 1000},
+        {"field": "email_pair_prior_frequency", "op": "lt", "value": 0.001},
+        {"field": "multivariate_normalized", "op": "gte", "value": 0.95}
+      ]},
+      "then": {"action": "review"}
+    },
+    {
+      "id": "R09_high_adjusted_score", "enabled": true, "priority": 60,
+      "description": "Context-adjusted anomaly score at least 0.85 warrants review; this score is not a fraud probability.",
+      "when": {"field": "adjusted_anomaly_score", "op": "gte", "value": 0.85},
+      "then": {"action": "review"}
+    },
+    {
+      "id": "R10_familiar_activity", "enabled": true, "priority": 10,
+      "description": "Frequent proxy, familiar amount and low adjusted score suggest monitoring; every matched review rule has higher priority.",
+      "when": {"all": [
+        {"field": "frequent_entity", "op": "eq", "value": 1},
+        {"field": "usual_amount", "op": "eq", "value": 1},
+        {"field": "adjusted_anomaly_score", "op": "lt", "value": 0.6}
+      ]},
+      "then": {"action": "monitor"}
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "POL-TIME", "title": "Takvim ve geçmiş bilgisi / Calendar and causal history",
+    "text": "IEEE-CIS TransactionDT is elapsed seconds from an undisclosed reference, not a verified calendar date. Without an explicit timezone-aware reference, business hours and weekend are unknown; do not infer a real date. Entity features use strictly earlier transactions. Transactions at the same second cannot see each other's outcomes. Validation/test history updates use observed features, never fraud labels. Gerçek takvim bilinmediğinde gece, hafta sonu veya iş saati yorumu yapılmaz.",
+    "source": "docs/technical.md", "kind": "implementation_note"
+  },
+  {
+    "id": "POL-ENTITY", "title": "Entity, cihaz ve güven / Entity and trust limits",
+    "text": "Entity is a card/address proxy (card1, card2, card3, card5, addr1), not an identified person. Missing proxy components do not form a common entity. DeviceInfo is a device description, not a unique device ID. A frequent entity is not automatically trusted. External trust needs a source and an observation timestamp strictly before TransactionDT. No real trusted-customer list is supplied in this case. Sık işlem yapmak güvenilir olmak anlamına gelmez.",
+    "source": "docs/technical.md", "kind": "implementation_note"
+  },
+  {
+    "id": "POL-SCORES", "title": "Anomali skorlarının yorumu / Score interpretation",
+    "text": "Column, multivariate, entity and temporal anomaly scores describe different deviations. Train-only strict lower empirical ranks normalize each layer. Available layers have renormalized weights; missing history is not zero risk. The default weights are equal. The final score is a weighted combination of layer ranks, not itself an overall empirical percentile. A final score of 0.85 does NOT mean top 15 percent, 85th percentile, highest risk category, or 85 percent fraud probability. Only individual normalized layers have their specified train-reference rank interpretation. IsolationForest explanation reports observed inputs and aggregate score; no SHAP or causal feature attribution was computed. Nihai anomali skoru dolandırıcılık olasılığı veya doğrudan genel yüzdelik dilim değildir.",
+    "source": "reports/anomaly_scores.md", "kind": "implementation_note"
+  },
+  {
+    "id": "POL-CONTEXT", "title": "Bağlam indirimi / Context adjustment",
+    "text": "In the baseline profile, context discounts apply to individual layer contributions. At most the strongest proposed discount per layer applies; total reduction is capped at 0.05 and 15 percent of raw score. Strong entity deviation, high multivariate rank, hourly velocity or a known new relation blocks discounts. Calendar, trust and weekend schedule branches require explicit evidence and were only scenario-tested when real evidence was absent. Product amount references are fitted only on training data. The optional product_risk profile is a different context policy described by POL-PRODUCT-RISK; do not apply baseline-only statements to that profile. Bağlam kuralları risk sinyalini sınırsız silemez; sık entity güven etiketi almaz.",
+    "source": "reports/context_adjustment.md", "kind": "implementation_note"
+  },
+  {
+    "id": "POL-EVALUATION", "title": "Deney sonuçları ve sınırlar / Evaluation limitations",
+    "text": "For the original baseline context profile, on later development validation at threshold 0.85167813 context removed 115 false positives but also 17 true fraud alerts. At equal review budget, raw caught 172 fraud and baseline context 170; ranking improvement was not established for that profile. This validation segment was seen during development and is not a blind holdout. Rules at the separate fixed comparator 0.85 sent 3667 reviews, caught 236 fraud and generated 3431 false positives; baseline context alone sent 2135 reviews and caught 162 fraud. Review budgets differ. Never claim rule ranking superiority from these counts. Production preference requires review and missed-fraud costs. A later optional product_risk experiment has different results and is described separately in POL-PRODUCT-RISK.",
+    "source": "reports/context_adjustment.md; reports/rule_engine.md", "kind": "measured_development_result"
+  },
+  {
+    "id": "POL-PRODUCT-RISK", "title": "Ürün riski bağlamı / Optional product_risk context profile",
+    "text": "The optional product_risk profile replaces product-typical-amount discounts with bounded historical product risk. It uses only train fraud labels, smoothing with 1000 observations at the global train fraud rate and requiring 1000 product observations. The adjustment is strength times log(product smoothed rate / global rate), log-clipped to [-1,1], with strength 0.1 and final score clipped to [0,1]. Strong anomaly guards block negative adjustments. Unknown products and transactions at or before the training cutoff get no product-risk adjustment. Other behavior/calendar/trust rules remain. This context uses supervision; training labels are assumed already available. It is not a calibrated fraud probability. In previously seen later validation at 5% review budget, raw caught 230 fraud with 2723 false positives and product_risk caught 242 with 2711 false positives, both reviewing 2953 transactions. At 1% budget raw caught 46 and product_risk 37; it is not uniformly better. These are development results, not an independent final test. The original baseline remains the default; requests explicitly report context_profile.",
+    "source": "reports/product_context.md", "kind": "measured_development_result"
+  },
+  {
+    "id": "POL-PRIORITY", "title": "Kural çakışması ve karar / Rule priority and conflict",
+    "text": "Highest numeric priority wins among matched rules; equal priorities use ascending rule ID, independent of JSON order. Every matching rule remains visible, including superseded rules. In the shipped policy every review rule has higher priority than R10 monitor. A familiar amount cannot override an active higher-priority velocity rule. review is a manual investigation recommendation; monitor is an observation recommendation; no_rule_match does not prove safety. Rules do not change anomaly scores, approve payments or establish guilt. Kural eşleşmemesi güvenli işlem demek değildir.",
+    "source": "config/rules.json; reports/rule_engine.md", "kind": "sample_business_policy"
+  }
+]

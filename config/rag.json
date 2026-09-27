@@ -1,0 +1,10 @@
+{
+  "base_url": "http://127.0.0.1:11435",
+  "embedding_model": "embeddinggemma:300m",
+  "generation_model": "qwen3:4b",
+  "top_k": 4,
+  "minimum_similarity": 0.30,
+  "timeout_seconds": 600,
+  "context_tokens": 8192,
+  "output_tokens": 800
+}
